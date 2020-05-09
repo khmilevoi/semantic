@@ -1,0 +1,20 @@
+{
+  "name": "lb1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsdom": "^16.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3",
+    "sucrase": "^3.13.0"
+  }
+}
