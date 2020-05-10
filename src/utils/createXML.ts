@@ -8,12 +8,14 @@ const createChildren = (item: Item) =>
       switch (name) {
         case "id": {
           attributes += ` id="${value}"`;
+          break;
         }
 
         default: {
           tag += `<${name}>`;
           tag += value;
           tag += `</${name}>`;
+          break;
         }
       }
 
@@ -24,12 +26,28 @@ const createChildren = (item: Item) =>
     ["", ""]
   );
 
-export const wrapXML = (xml: string) => {
-  let wrappedXML = '<?xml version="1.0"?>';
+type Params = {
+  root?: string;
+  meta?: boolean;
+  withoutRoot?: boolean;
+};
 
-  wrappedXML += '<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">';
-  wrappedXML += xml;
-  wrappedXML += "</root>";
+export const wrapXML = (xml: string, params?: Params) => {
+  const { root = "root", meta, withoutRoot } = params || {};
+
+  let wrappedXML = xml;
+
+  if (!withoutRoot) {
+    wrappedXML = `
+    <${root} xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      ${wrappedXML}
+    </${root}>
+    `;
+  }
+
+  if (meta) {
+    wrappedXML = `<?xml version="1.0"?>${wrappedXML}`;
+  }
 
   return wrappedXML;
 };
