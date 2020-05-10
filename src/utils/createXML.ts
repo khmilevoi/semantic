@@ -46,7 +46,7 @@ export const wrapXML = (xml: string, params?: Params) => {
   }
 
   if (meta) {
-    wrappedXML = `<?xml version="1.0"?>${wrappedXML}`;
+    wrappedXML = `<?xml version="1.0"?>\n${wrappedXML}`;
   }
 
   return wrappedXML;

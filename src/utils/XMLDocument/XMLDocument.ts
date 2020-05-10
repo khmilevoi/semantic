@@ -1,158 +1,25 @@
-class Node {
-  private id: Symbol;
-
-  constructor(id: string) {
-    this.id = Symbol(id.slice(0, 10));
-  }
-
-  getId() {
-    return this.id;
-  }
-}
+import { Tag } from "./Tag";
+import { Text } from "./Text";
+import { createExecutor } from "./createExecutor";
 
 export type TNode = Text | Tag;
 
-export class Text extends Node {
-  private text: string;
-
-  constructor(text: string) {
-    super(text);
-
-    this.text = text;
-  }
-
-  getText() {
-    return this.text;
-  }
-
-  setText(text) {
-    return (this.text = text);
-  }
-}
-
-type Props = {
-  [name: string]: any;
-};
-
-export class Tag extends Node {
-  private name: string;
-  private props: Map<string, any>;
-  private children: TNode[];
-  private single: boolean;
-
-  constructor(
-    name: string = null,
-    props: Props = {},
-    children = [],
-    single = false
-  ) {
-    super(name);
-
-    this.name = name;
-    this.props = new Map(Object.entries(props));
-    this.children = children;
-    this.single = single;
-  }
-
-  find(name): Tag {
-    return this.children.reduce<Tag>((found, tag) => {
-      if (tag instanceof Tag) {
-        if (tag.name === name) {
-          return tag;
-        }
-
-        return tag.find(name);
-      }
-
-      return found;
-    }, null);
-  }
-
-  findAll(name): Tag[] {
-    return this.children.reduce((tags, tag) => {
-      if (tag instanceof Tag) {
-        if (tag.name === name) {
-          return [...tags, tag];
-        }
-
-        return [...tags, ...tag.findAll(name)];
-      }
-
-      return tags;
-    }, []);
-  }
-
-  getSingle() {
-    return this.single || !this.children.length;
-  }
-
-  isSingle() {
-    return (this.single = true);
-  }
-
-  isNotSingle() {
-    return (this.single = false);
-  }
-
-  getName() {
-    return this.name;
-  }
-
-  setName(name: string) {
-    return (this.name = name);
-  }
-
-  getProps() {
-    return this.props;
-  }
-
-  getProp(key) {
-    return this.props.get(key);
-  }
-
-  addProp(key, value) {
-    return this.props.set(key, value);
-  }
-
-  removeProp(key) {
-    return this.props.delete(key);
-  }
-
-  getChildren(): TNode[] {
-    return this.children;
-  }
-
-  addChild(...child: TNode[]) {
-    return this.children.push(...child);
-  }
-
-  removeChild(child: TNode) {
-    const index = this.children.findIndex(
-      (item) => item.getId() === child.getId()
-    );
-
-    return this.children.splice(index, 1);
-  }
-}
-
 type Tree = {
-  root: TNode;
+  root: Tag;
   nodes: Tag[];
-};
-
-type Types = {
-  [name: string]: (string) => boolean;
 };
 
 export class XMLDocument {
   private xmlString: string;
   private tree: Tree;
+  private root: Tag;
 
   private _tagState: string;
 
-  constructor(xml: string) {
+  constructor(xml: string = "") {
     this.xmlString = xml;
     this.tree = null;
+    this.root = null;
 
     this._tagState = XMLDocument.tag.DEFAULT;
   }
@@ -185,6 +52,22 @@ export class XMLDocument {
 
       return false;
     });
+  }
+
+  getRoot() {
+    return this.root;
+  }
+
+  setRoot(root: Tag, nodes = []) {
+    XMLDocument.handleError(this);
+
+    if (root instanceof Tag) {
+      this.tree = { root, nodes };
+
+      return (this.root = root);
+    }
+
+    throw new Error("The root must be a tag");
   }
 
   remove(node: TNode) {
@@ -259,6 +142,10 @@ export class XMLDocument {
 
   nextTagState(item) {
     switch (item) {
+      case XMLDocument.regexps.META_TAG: {
+        return (this._tagState = XMLDocument.tag.META);
+      }
+
       case XMLDocument.regexps.L_ANGLE: {
         return (this._tagState = XMLDocument.tag.OPENING);
       }
@@ -293,6 +180,10 @@ export class XMLDocument {
     splitted.forEach((currentItem) => {
       const currentTag = stack[0];
 
+      if (XMLDocument.types.META_TAG(currentItem)) {
+        return (tagState = this.nextTagState(XMLDocument.regexps.META_TAG));
+      }
+
       if (XMLDocument.types.L_ANGLE(currentItem)) {
         return (tagState = this.nextTagState(XMLDocument.regexps.L_ANGLE));
       }
@@ -305,10 +196,6 @@ export class XMLDocument {
         currentTag.isSingle();
 
         if (tagState === XMLDocument.tag.OPENING) {
-          if (currentTag.children.length === 0) {
-            currentTag.isSingle();
-          }
-
           stack.shift();
         }
 
@@ -319,10 +206,6 @@ export class XMLDocument {
 
       if (XMLDocument.types.R_ANGLE(currentItem)) {
         if (tagState === XMLDocument.tag.CLOSING) {
-          if (currentTag.children.length === 0) {
-            currentTag.isSingle();
-          }
-
           stack.shift();
         }
 
@@ -362,6 +245,7 @@ export class XMLDocument {
     });
 
     this.tree = { root, nodes };
+    this.root = root;
 
     return this.tree;
   }
@@ -427,9 +311,11 @@ export class XMLDocument {
     OPENING: "OPENING",
     CLOSING: "CLOSING",
     DEFAULT: "DEFAULT",
+    META: "META",
   };
 
   static regexps = {
+    META_TAG: /(<\?)|(\?>)/,
     L_ANGLE: /^<$/,
     R_ANGLE: /^>$/,
     CLOSE_TAG: /^<\/$/,
@@ -437,15 +323,8 @@ export class XMLDocument {
     ESCAPE: /^\/$/,
     CONTENT: /^\S+$/,
     WHITE_SPACE: /^\s$/,
-    SEPARATOR: /(<\/?|\/?>)/,
+    SEPARATOR: /(<(?:\/|\?)?|(?:\/|\?)?>)/,
   };
 
-  static types: Types = (() => {
-    return Object.entries(XMLDocument.regexps).reduce((types, [key, value]) => {
-      return {
-        ...types,
-        [key]: (str) => value.test(str),
-      };
-    }, {});
-  })();
+  static types = createExecutor(XMLDocument.regexps);
 }
