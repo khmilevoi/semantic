@@ -22,7 +22,7 @@
           <div style="margin-left:20px;margin-bottom:1em;font-size:10pt">
             <p>
               <xsl:value-of select="name"></xsl:value-of>
-              <span style="font-style:italic">
+              <span style="font-style:italic;padding:5px;background-color:#bfbfbf;">
                 <xsl:value-of select="content"></xsl:value-of>
               </span>
             </p>

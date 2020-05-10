@@ -1,0 +1,450 @@
+<?xml version="1.0"?>
+<products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<product index="1">
+		<name description="В наличии">
+			Name: Asic Bitmain S9z 20,5 TH/s SHA-256 + БП (В наличии)
+		</name>
+		<price>
+			5450
+		</price>
+		<priceCurrency>
+			UAH
+		</priceCurrency>
+		<id>
+			55620
+		</id>
+		<comments amount="2">
+			<comment index="0">
+				<name>
+					A
+				</name>
+				<content>
+					AAAAAAAAAAAAAAAAAAAA
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					BBBBBBBBBBBBBBBBBBBB
+				</content>
+			</comment>
+		</comments>
+	</product>
+	<product index="2">
+		<name description="В наличии">
+			Name: Asic Bitmain Antminer DR3 7.8 TH/s Blake(14r) + БП (В наличии)
+		</name>
+		<price>
+			2180
+		</price>
+		<priceCurrency>
+			UAH
+		</priceCurrency>
+		<id>
+			55375
+		</id>
+		<comments amount="4">
+			<comment index="0">
+				<name>
+					A
+				</name>
+				<content>
+					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+				</content>
+			</comment>
+			<comment index="2">
+				<name>
+					C
+				</name>
+				<content>
+					CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+				</content>
+			</comment>
+			<comment index="3">
+				<name>
+					D
+				</name>
+				<content>
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+				</content>
+			</comment>
+		</comments>
+	</product>
+	<product index="3">
+		<name description="В наличии">
+			Name: Asic Bitmain Antminer B3 1000 H/s Tensority + БП (В наличии)
+		</name>
+		<price>
+			1908
+		</price>
+		<priceCurrency>
+			UAH
+		</priceCurrency>
+		<id>
+			54867
+		</id>
+		<comments amount="4">
+			<comment index="0">
+				<name>
+					A
+				</name>
+				<content>
+					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+				</content>
+			</comment>
+			<comment index="2">
+				<name>
+					C
+				</name>
+				<content>
+					CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+				</content>
+			</comment>
+			<comment index="3">
+				<name>
+					D
+				</name>
+				<content>
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+				</content>
+			</comment>
+		</comments>
+	</product>
+	<product index="4">
+		<name description="В наличии">
+			Name: Asic Innosilicon T2TZ 30 Th/s SHA-256 + БП (В наличии)
+		</name>
+		<price>
+			13625
+		</price>
+		<priceCurrency>
+			UAH
+		</priceCurrency>
+		<id>
+			55545
+		</id>
+		<comments amount="4">
+			<comment index="0">
+				<name>
+					A
+				</name>
+				<content>
+					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+				</content>
+			</comment>
+			<comment index="2">
+				<name>
+					C
+				</name>
+				<content>
+					CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+				</content>
+			</comment>
+			<comment index="3">
+				<name>
+					D
+				</name>
+				<content>
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+				</content>
+			</comment>
+		</comments>
+	</product>
+	<product index="5">
+		<name description="доставка в Украину 7 дней">
+			Name: Asic Bitmain Antminer Z11 135 kH/s Equihash + БП (доставка в Украину 7 дней)
+		</name>
+		<price>
+			52184
+		</price>
+		<priceCurrency>
+			UAH
+		</priceCurrency>
+		<id>
+			55471
+		</id>
+		<comments amount="4">
+			<comment index="0">
+				<name>
+					A
+				</name>
+				<content>
+					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+				</content>
+			</comment>
+			<comment index="2">
+				<name>
+					C
+				</name>
+				<content>
+					CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+				</content>
+			</comment>
+			<comment index="3">
+				<name>
+					D
+				</name>
+				<content>
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+				</content>
+			</comment>
+		</comments>
+	</product>
+	<product index="6">
+		<name description="доставка в Украину 7 дней">
+			Name: Asic Bitmain Antminer T17+ 58 TH/s SHA-256 + БП (доставка в Украину 7 дней)
+		</name>
+		<price>
+			34063
+		</price>
+		<priceCurrency>
+			UAH
+		</priceCurrency>
+		<id>
+			55659
+		</id>
+		<comments amount="4">
+			<comment index="0">
+				<name>
+					A
+				</name>
+				<content>
+					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+				</content>
+			</comment>
+			<comment index="2">
+				<name>
+					C
+				</name>
+				<content>
+					CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+				</content>
+			</comment>
+			<comment index="3">
+				<name>
+					D
+				</name>
+				<content>
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+				</content>
+			</comment>
+		</comments>
+	</product>
+	<product index="7">
+		<name description="15-30 июня, с завода">
+			Name: Asic Bitmain Antminer S19 PRO 110 TH/s SHA-256 + БП (15-30 июня, с завода)
+		</name>
+		<price>
+			98100
+		</price>
+		<priceCurrency>
+			UAH
+		</priceCurrency>
+		<id>
+			55681
+		</id>
+		<comments amount="1">
+			<comment index="0">
+				<name>
+					A
+				</name>
+				<content>
+					AAAAAAAAAA
+				</content>
+			</comment>
+		</comments>
+	</product>
+	<product index="8">
+		<name description="10-20 мая, с завода">
+			Name: Asic Bitmain Antminer S19 PRO 110 TH/s SHA-256 + БП (10-20 мая, с завода)
+		</name>
+		<price>
+			117175
+		</price>
+		<priceCurrency>
+			UAH
+		</priceCurrency>
+		<id>
+			55669
+		</id>
+		<comments amount="3">
+			<comment index="0">
+				<name>
+					A
+				</name>
+				<content>
+					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+				</content>
+			</comment>
+			<comment index="2">
+				<name>
+					C
+				</name>
+				<content>
+					CCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+				</content>
+			</comment>
+		</comments>
+	</product>
+	<product index="9">
+		<name description="1-31 июля с завода">
+			Name: Asic Bitmain Antminer S19 PRO 110 TH/s SHA-256 + БП (1-31 июля с завода)
+		</name>
+		<price>
+			89925
+		</price>
+		<priceCurrency>
+			UAH
+		</priceCurrency>
+		<id>
+			55682
+		</id>
+		<comments amount="4">
+			<comment index="0">
+				<name>
+					A
+				</name>
+				<content>
+					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+				</content>
+			</comment>
+			<comment index="2">
+				<name>
+					C
+				</name>
+				<content>
+					CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+				</content>
+			</comment>
+			<comment index="3">
+				<name>
+					D
+				</name>
+				<content>
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+				</content>
+			</comment>
+		</comments>
+	</product>
+	<product index="10">
+		<name description="10-20 мая, с завода">
+			Name: Asic Bitmain Antminer S19 90 TH/s SHA-256 + БП (10-20 мая, с завода)
+		</name>
+		<price>
+			89925
+		</price>
+		<priceCurrency>
+			UAH
+		</priceCurrency>
+		<id>
+			55670
+		</id>
+		<comments amount="4">
+			<comment index="0">
+				<name>
+					A
+				</name>
+				<content>
+					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+				</content>
+			</comment>
+			<comment index="2">
+				<name>
+					C
+				</name>
+				<content>
+					CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+				</content>
+			</comment>
+			<comment index="3">
+				<name>
+					D
+				</name>
+				<content>
+					DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+				</content>
+			</comment>
+		</comments>
+	</product>
+	<product index="11">
+		<name description="1-31 июля с завода">
+			Name: Asic Bitmain Antminer S19 90 TH/s SHA-256 + БП (1-31 июля с завода)
+		</name>
+		<price>
+			72349
+		</price>
+		<priceCurrency>
+			UAH
+		</priceCurrency>
+		<id>
+			55683
+		</id>
+		<comments amount="0"/>
+	</product>
+</products>
