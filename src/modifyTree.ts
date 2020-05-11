@@ -39,11 +39,14 @@ export const modifyTree = (document: XMLDocument) => {
       ...Array.from(Array(amount), (_, index) => {
         const comment = new Tag("comment", { index });
 
+        const content = Array.from(
+          Array(Math.floor(Math.random() * amount + 50)),
+          () => String.fromCharCode(Math.floor(Math.random() * 65 + 65))
+        ).join("");
+
         comment.addChild(
           new Tag("name", {}, [new Text(String.fromCharCode(65 + index))]),
-          new Tag("content", {}, [
-            new Text(String.fromCharCode(65 + index).repeat(amount * 10)),
-          ])
+          new Tag("content", {}, [new Text(content)])
         );
 
         return comment;

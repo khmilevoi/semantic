@@ -39,19 +39,14 @@ export class Composer {
     const last = parsedPath.pop();
     const firstNode = node.find(first, false);
     const goal = parsedPath.reduce<Tag>(
-      (current, name) => current && current.find(name),
+      (current, name) => current && current.find(name, false),
       firstNode
     );
 
-    return [goal, last];
+    return [goal, last || first];
   }
 
-  createInstruction(
-    node: Tag,
-    name: string,
-    root: Tag,
-    saved?: Tag
-  ): Tag | TNode[] {
+  createInstruction(node: Tag, name: string, saved?: Tag): Tag | TNode[] {
     const path = node.getProp("select");
 
     if (Composer.types.FOR_EACH(name)) {
@@ -63,15 +58,15 @@ export class Composer {
 
       const sequence = goal.findAll(last, false);
 
-      const rootClone = root.clone();
+      const mock = new Tag("fictitious");
 
       sequence.forEach((item) =>
         node
           .getChildren()
-          .forEach((child) => this.composeChild(rootClone, child, item))
+          .forEach((child) => this.composeChild(mock, child, item))
       );
 
-      return rootClone.getChildren();
+      return mock.getChildren();
     }
 
     if (Composer.types.VALUE_OF(name)) {
@@ -81,9 +76,9 @@ export class Composer {
         throw new Error(`Incorrect path [${node.getName()}]`);
       }
 
-      const item = goal.find(last);
+      const item = goal.find(last, false);
 
-      const text = goal.getChildren().filter((child) => child instanceof Text);
+      const text = item.getChildren().filter((child) => child instanceof Text);
 
       return text;
     }
@@ -99,16 +94,11 @@ export class Composer {
     return [name, false];
   }
 
-  createChild(node: Tag, root: Tag, saved?: Tag) {
+  createChild(node: Tag, saved?: Tag) {
     const [name, isInstruction] = this.parseName(node.getName());
 
     if (isInstruction) {
-      const instruction = this.createInstruction(
-        node,
-        name.toString(),
-        root,
-        saved
-      );
+      const instruction = this.createInstruction(node, name.toString(), saved);
 
       return instruction;
     } else {
@@ -120,7 +110,7 @@ export class Composer {
 
   composeChild(root: Tag, node: TNode, saved?: Tag) {
     if (node instanceof Tag) {
-      const child = this.createChild(node, root, saved);
+      const child = this.createChild(node, saved);
 
       if (Array.isArray(child)) {
         root.addChild(...child);
