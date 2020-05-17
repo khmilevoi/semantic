@@ -45,7 +45,7 @@ const main = async () => {
     // await saveFile("src/results/document.html", htmlDocument.toString());
 
     const xpathString =
-      "products/product[((price + 5)>(2 * position() - @index div 2))]/name[position() mod 2 = 0]";
+      "products/product[1 + 2 + ((1 + 2) + 3)]/name[position() mod 2 = 0]";
 
     const xpath = new XPath(xpathString);
 

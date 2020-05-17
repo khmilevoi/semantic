@@ -30,6 +30,26 @@ export class XQueryParser extends Parser<THandel> {
     return expressions.push(expression);
   }
 
+  createChild(
+    current: Expression,
+    parsed: Expression | Token
+  ): [Expression?, boolean?] {
+    if (!current.getChild()) {
+      current.setChild(parsed);
+    } else {
+      const expression = new Expression();
+      expression.setChild(parsed);
+
+      if (!current.getNext()) {
+        current.setNext(expression);
+
+        return [expression, true];
+      }
+    }
+
+    return [];
+  }
+
   parse(xQueryString: string) {
     const splitted = XQueryParser.splitString(xQueryString, true)
       .map((item) => item && item.trim())
@@ -49,34 +69,34 @@ export class XQueryParser extends Parser<THandel> {
 
       const parsed = this.parseToken(token);
 
+      // debugger;
+
       if (parsed instanceof Token) {
-        if (!currentExpression.getChild()) {
-          currentExpression.setChild(parsed);
-        } else {
-          const expression = new Expression();
-          expression.setChild(parsed);
+        const [child, isNext] = this.createChild(currentExpression, parsed);
 
-          if (!currentExpression.getNext()) {
-            currentExpression.setNext(expression);
-
-            stack.push(expression);
-            XQueryParser.addExpression(expressions, expression);
-          }
+        if (isNext) {
+          stack.push(child);
+          expressions.push(child);
         }
       }
 
       if (parsed instanceof Expression) {
-        if (!currentExpression.getChild()) {
-          currentExpression.setChild(parsed);
-        } else {
-          currentExpression.setNext(parsed);
+        const [child, isNext] = this.createChild(currentExpression, parsed);
+
+        if (isNext) {
+          stack.push(child, parsed);
+          expressions.push(child, parsed);
         }
 
-        XQueryParser.addExpression(expressions, parsed);
         stack.push(parsed);
+        expressions.push(parsed);
 
         if (XQueryParser.type.L_BRACKET(token)) {
-          brackets.push(parsed);
+          if (child) {
+            brackets.push(child, parsed);
+          } else {
+            brackets.push(parsed);
+          }
         }
       }
 
