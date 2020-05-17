@@ -1,9 +1,9 @@
-import { createExecutor } from "./createExecutor";
 import { XMLDocument, TNode } from "./XMLDocument";
 import { Tag } from "./Tag";
 import { Text } from "./Text";
+import { createExecutor } from "utils/createExecutor";
 
-export class Composer {
+export class XSLExecutor {
   private xml: XMLDocument;
   private xsl: XMLDocument;
   private composed: XMLDocument;
@@ -49,7 +49,7 @@ export class Composer {
   createInstruction(node: Tag, name: string, saved?: Tag): Tag | TNode[] {
     const path = node.getProp("select");
 
-    if (Composer.types.FOR_EACH(name)) {
+    if (XSLExecutor.types.FOR_EACH(name)) {
       const [goal, last] = this.getNodeByPath(path, saved);
 
       if (!goal) {
@@ -69,7 +69,7 @@ export class Composer {
       return mock.getChildren();
     }
 
-    if (Composer.types.VALUE_OF(name)) {
+    if (XSLExecutor.types.VALUE_OF(name)) {
       const [goal, last] = this.getNodeByPath(path, saved);
 
       if (!goal) {
@@ -87,8 +87,8 @@ export class Composer {
   }
 
   parseName(name: string) {
-    if (Composer.types.INSTRUCTION(name)) {
-      return [name.replace(Composer.regexps.INSTRUCTION, ""), true];
+    if (XSLExecutor.types.INSTRUCTION(name)) {
+      return [name.replace(XSLExecutor.regexps.INSTRUCTION, ""), true];
     }
 
     return [name, false];
@@ -148,5 +148,5 @@ export class Composer {
     VALUE_OF: /value-of/,
   };
 
-  static types = createExecutor(Composer.regexps);
+  static types = createExecutor(XSLExecutor.regexps);
 }

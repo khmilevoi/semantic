@@ -1,6 +1,6 @@
 import { Tag } from "./Tag";
 import { Text } from "./Text";
-import { createExecutor } from "./createExecutor";
+import { createExecutor } from "utils/createExecutor";
 
 export type TNode = Text | Tag;
 
@@ -88,7 +88,13 @@ export class XMLDocument {
   }
 
   static verify(item, type) {
-    return true;
+    const currentToken = XMLDocument.token[type];
+
+    if (currentToken) {
+      return currentToken(item);
+    }
+
+    return false;
   }
 
   static parsePropValue(value, next) {
@@ -96,8 +102,8 @@ export class XMLDocument {
       return "";
     }
 
-    if (!this.verify(value, "prop")) {
-      throw new Error("Incorrect prop value");
+    if (!this.verify(value, XMLDocument.type.PROP_VALUE)) {
+      throw new Error(`Incorrect prop value [${value}]`);
     }
 
     return value;
@@ -114,8 +120,8 @@ export class XMLDocument {
 
     const tagName = splitted.shift();
 
-    if (!this.verify(tagName, "tag")) {
-      throw new Error("Incorrect tag name");
+    if (!this.verify(tagName, XMLDocument.type.TAG)) {
+      throw new Error(`Incorrect tag name [${tagName}]`);
     }
 
     const props = {};
@@ -124,8 +130,8 @@ export class XMLDocument {
       const [name, _, value] = splitted.splice(0, 3);
       const [next] = splitted;
 
-      if (!this.verify(name, "tag")) {
-        throw new Error("Incorrect prop name");
+      if (!this.verify(name, XMLDocument.type.PROP_NAME)) {
+        throw new Error(`Incorrect prop name [${name}]`);
       }
 
       const parsedValue = XMLDocument.parsePropValue(value, next);
@@ -176,26 +182,31 @@ export class XMLDocument {
 
     let root = null;
     let tagState = this._tagState;
+    let tagChecker = 0;
 
     splitted.forEach((currentItem) => {
       const currentTag = stack[0];
 
-      if (XMLDocument.types.META_TAG(currentItem)) {
+      if (XMLDocument.token.META_TAG(currentItem)) {
         return (tagState = this.nextTagState(XMLDocument.regexps.META_TAG));
       }
 
-      if (XMLDocument.types.L_ANGLE(currentItem)) {
+      if (XMLDocument.token.L_ANGLE(currentItem)) {
+        tagChecker += 1;
+
         return (tagState = this.nextTagState(XMLDocument.regexps.L_ANGLE));
       }
 
-      if (XMLDocument.types.CLOSE_TAG(currentItem)) {
+      if (XMLDocument.token.CLOSE_TAG(currentItem)) {
         return (tagState = this.nextTagState(XMLDocument.regexps.CLOSE_TAG));
       }
 
-      if (XMLDocument.types.CLOSE_SINGLE_TAG(currentItem)) {
+      if (XMLDocument.token.CLOSE_SINGLE_TAG(currentItem)) {
         currentTag.isSingle();
 
         if (tagState === XMLDocument.tag.OPENING) {
+          tagChecker -= 1;
+
           stack.shift();
         }
 
@@ -204,15 +215,17 @@ export class XMLDocument {
         ));
       }
 
-      if (XMLDocument.types.R_ANGLE(currentItem)) {
+      if (XMLDocument.token.R_ANGLE(currentItem)) {
         if (tagState === XMLDocument.tag.CLOSING) {
+          tagChecker -= 1;
+
           stack.shift();
         }
 
         return (tagState = this.nextTagState(XMLDocument.regexps.R_ANGLE));
       }
 
-      if (XMLDocument.types.CONTENT) {
+      if (XMLDocument.token.CONTENT) {
         if (tagState === XMLDocument.tag.OPENING) {
           const tagData = currentItem;
 
@@ -243,6 +256,10 @@ export class XMLDocument {
         return (tagState = this.nextTagState(XMLDocument.regexps.CONTENT));
       }
     });
+
+    if(tagChecker !== 0) {
+      throw new Error("Incorrect xml syntax");
+    }
 
     this.tree = { root, nodes };
     this.root = root;
@@ -307,6 +324,12 @@ export class XMLDocument {
     return this.toString();
   }
 
+  static type = {
+    PROP_NAME: "PROP_NAME",
+    PROP_VALUE: "PROP_VALUE",
+    TAG: "TAG",
+  };
+
   static tag = {
     OPENING: "OPENING",
     CLOSING: "CLOSING",
@@ -324,7 +347,10 @@ export class XMLDocument {
     CONTENT: /^\S+$/,
     WHITE_SPACE: /^\s$/,
     SEPARATOR: /(<(?:\/|\?)?|(?:\/|\?)?>)/,
+    PROP_NAME: /^\S+$/,
+    PROP_VALUE: /.*/,
+    TAG: /^\S+$/,
   };
 
-  static types = createExecutor(XMLDocument.regexps);
+  static token = createExecutor(XMLDocument.regexps);
 }

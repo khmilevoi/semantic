@@ -1,4 +1,4 @@
-import { XMLDocument, Text, Tag } from "utils/XMLDocument";
+import { Tag, Text, XMLDocument } from "utils/XMLUtils";
 
 export const modifyTree = (document: XMLDocument) => {
   const productContainer = document.find("products");
