@@ -1,4 +1,4 @@
-import { Token } from "../../../common/Token";
+import { Token } from "../Token";
 
 export class NodeToken extends Token {
   static type = "node";

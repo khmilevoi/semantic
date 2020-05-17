@@ -1,24 +1,24 @@
 import { Handler } from "./Handler";
 
-export abstract class Parser {
-  private handlers: Handler[] = [];
+import { combineRegExp } from "./combineRegExp";
+import { Token } from "./Token";
+
+export abstract class Parser<T> {
+  private handlers: Handler<T>[] = [];
 
   getHandlers() {
     return this.handlers;
   }
 
-  addHandler(handler: Handler) {
+  addHandler(handler: Handler<T>) {
     return this.handlers.push(handler);
   }
 
-  splitString(source: string, save?: boolean) {
-    const combined = Object.values<RegExp>(this.SPLITTER)
-      .map((regexp) => regexp.source)
-      .join("|");
-    const splitter = new RegExp(save ? `(${combined})` : combined);
+  static splitString(source: string, save?: boolean) {
+    const splitter = combineRegExp(Object.values<RegExp>(this.SPLITTER), save);
 
     return source.split(splitter);
   }
 
-  SPLITTER = {};
+  static SPLITTER = {};
 }

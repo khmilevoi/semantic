@@ -2,10 +2,10 @@ import { createExecutor } from "utils/createExecutor";
 
 import { Handler } from "../../../common/Handler";
 
-import { states } from "../../constants/states";
+import { Expression } from "../../Expression";
 
-export class BracketsHandler extends Handler {
-  regexp = /\(|\)/;
+export class BracketsHandler extends Handler<Expression> {
+  regexp = /^(\(|\))/;
 
   static BRACKETS = {
     OPEN: /\(/,
@@ -14,17 +14,13 @@ export class BracketsHandler extends Handler {
 
   static types = createExecutor(BracketsHandler.BRACKETS);
 
-  parse() {
-    return null;
-  }
-
-  nextState(token) {
+  parse(token: string) {
     if (BracketsHandler.types.OPEN(token)) {
-      return states.BRACKETS.OPEN;
+      const expression = new Expression();
+
+      return expression;
     }
 
-    if (BracketsHandler.types.CLOSE(token)) {
-      return states.BRACKETS.CLOSE;
-    }
+    return null;
   }
 }

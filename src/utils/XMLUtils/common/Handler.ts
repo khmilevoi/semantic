@@ -1,17 +1,13 @@
 import { Token } from "./Token";
 
-export abstract class Handler {
+export abstract class Handler<T> {
   regexp: RegExp;
 
   verify(token: string) {
     return this.regexp.test(token);
   }
 
-  parse(token: string): Token {
-    throw new Error("Method must be declared");
-  }
-
-  nextState(token: string): string {
+  parse(token: string): T {
     throw new Error("Method must be declared");
   }
 }

@@ -2,15 +2,9 @@ import { Token } from "../common/Token";
 
 import { Parser } from "../common/Parser";
 
-export class XPathParser extends Parser {
-  private path: Token[];
-
-  getPath() {
-    return this.path;
-  }
-
+export class XPathParser extends Parser<Token> {
   parse(xPathString: string): Token[] {
-    const splitted = this.splitString(xPathString);
+    const splitted = XPathParser.splitString(xPathString);
 
     const tokens = splitted.map((token) =>
       this.getHandlers().reduce<Token>((result, handler) => {
@@ -28,10 +22,10 @@ export class XPathParser extends Parser {
       }
     });
 
-    return (this.path = tokens);
+    return tokens;
   }
 
-  SPLITTER = {
+  static SPLITTER = {
     SLASH: /\//,
     SQUARE_BRACKET: /(?=\[)/,
   };

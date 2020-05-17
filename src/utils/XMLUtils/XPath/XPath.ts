@@ -1,7 +1,8 @@
 import { XPathParser } from "./XPathParser";
 
-import { NodeHandler } from "./handlers/Node/NodeHandler";
+import { NodeHandler } from "../common/Node/NodeHandler";
 import { PredicateHandler } from "./handlers/Predicate/PredicateHandler";
+import { Token } from "../common/Token";
 
 const parser = new XPathParser();
 
@@ -12,12 +13,20 @@ export class XPath {
   private xpathString: string;
   private parser: XPathParser;
 
+  private path: Token[];
+
   constructor(xpath: string = "", currentParser = parser) {
     this.xpathString = xpath.trim();
     this.parser = currentParser;
   }
 
+  getPath() {
+    return this.path;
+  }
+
   parse() {
-    return this.parser.parse(this.xpathString);
+    const path: Token[] = this.parser.parse(this.xpathString);
+
+    return (this.path = path);
   }
 }

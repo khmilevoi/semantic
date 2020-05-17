@@ -1,8 +1,8 @@
-import { Handler } from "../../../common/Handler";
-
 import { NodeToken } from "./NodeToken";
 
-export class NodeHandler extends Handler {
+import { Handler } from "../Handler";
+
+export class NodeHandler extends Handler<NodeToken> {
   regexp = new RegExp(/^\w+$/);
 
   parse(token: string) {

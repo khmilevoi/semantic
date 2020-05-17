@@ -1,75 +1,115 @@
 import { createExecutor } from "utils/createExecutor";
 
+import { Expression } from "./Expression";
+
 import { Parser } from "../common/Parser";
 import { Token } from "../common/Token";
 
-type Tree = { root: Token; tokens: Token[] };
+import { Operator } from "./handlers/Operators/Operator";
 
-export class XQueryParser extends Parser {
-  private tree: Tree;
+import { types } from "./constants/types";
 
+export type THandel = Expression | Operator | Token;
+
+export type TTree = { root: Expression; expressions: Expression[] };
+
+export class XQueryParser extends Parser<THandel> {
   parseToken(token: string) {
-    return this.getHandlers().reduce<[Token, string]>(
-      ([result, state], handler) => {
-        if (!result && handler.verify(token)) {
-          const parsed = handler.parse(token);
-          const next = handler.nextState(token);
+    return this.getHandlers().reduce((result, handler) => {
+      if (!result && handler.verify(token)) {
+        const parsed = handler.parse(token);
 
-          return [parsed, next];
-        }
+        return parsed;
+      }
 
-        return [result, state];
-      },
-      [null, null]
-    );
+      return result;
+    }, null);
+  }
+
+  static addExpression(expressions: Expression[], expression: Expression) {
+    return expressions.push(expression);
   }
 
   parse(xQueryString: string) {
-    const splitted = this.splitString(xQueryString, true)
-      .map((item) => item.trim())
+    const splitted = XQueryParser.splitString(xQueryString, true)
+      .map((item) => item && item.trim())
       .filter((item) => !!item);
 
-    const tokens = [];
-    const tree: Tree = { root: null, tokens };
+    const expressions: Expression[] = [];
+    const root = new Expression();
+    const tree: TTree = { root, expressions };
 
-    const stack: Token[] = [];
+    const stack: Expression[] = [tree.root];
+    const brackets: Expression[] = [tree.root];
+
+    // debugger;
 
     splitted.forEach((token) => {
-      const [parsed, nextState] = this.parseToken(token);
+      const currentExpression = stack[stack.length - 1];
 
-      if (parsed) {
-        if (!tree.root) {
-          tree.root = parsed;
+      const parsed = this.parseToken(token);
+
+      if (parsed instanceof Token) {
+        if (!currentExpression.getChild()) {
+          currentExpression.setChild(parsed);
+        } else {
+          const expression = new Expression();
+          expression.setChild(parsed);
+
+          if (!currentExpression.getNext()) {
+            currentExpression.setNext(expression);
+
+            stack.push(expression);
+            XQueryParser.addExpression(expressions, expression);
+          }
         }
-
-        stack.push(parsed);
       }
 
-      if (this.type.R_BRACKET(token)) {
-        stack.pop();
+      if (parsed instanceof Expression) {
+        if (!currentExpression.getChild()) {
+          currentExpression.setChild(parsed);
+        } else {
+          currentExpression.setNext(parsed);
+        }
+
+        XQueryParser.addExpression(expressions, parsed);
+        stack.push(parsed);
+
+        if (XQueryParser.type.L_BRACKET(token)) {
+          brackets.push(parsed);
+        }
+      }
+
+      if (parsed instanceof Operator) {
+        currentExpression.setOperator(parsed);
+      }
+
+      if (
+        XQueryParser.type.R_BRACKET(token) &&
+        !XQueryParser.type.FUNCTION(token)
+      ) {
+        const last = brackets.pop();
+        const index = stack.indexOf(last);
+
+        if (index !== -1) {
+          stack.splice(index);
+        }
+      } else {
+        if (!parsed) {
+          throw new Error(`Undefined token [${token}]`);
+        }
       }
     });
 
-    return (this.tree = tree);
+    return tree;
   }
 
-  SPLITTER = {
-    PLUS: /\+/,
-    MINUS: /-/,
-    MULTI: /\*/,
-    DIV: /div/,
-    EQUAL: /=/,
-    NOT_EQUAL: /!=/,
-    STRICT_LESS_THAN: /</,
-    LESS_THAN: /<=/,
-    STRICT_GREATER_THAN: />/,
-    GREATER_THAN: />=/,
-    OR: /or/,
-    AND: /and/,
-    MOD: /mod/,
+  static SPLITTER = {
+    ...types.OPERATORS,
+    FUNCTION: /\w+\([^\)]*\)(\.[^\)]*\))?/,
     L_BRACKET: /\(/,
     R_BRACKET: /\)/,
   };
 
-  type = createExecutor(this.SPLITTER);
+  static type = createExecutor({ ...XQueryParser.SPLITTER });
 }
