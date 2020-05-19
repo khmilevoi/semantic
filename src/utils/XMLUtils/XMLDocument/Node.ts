@@ -12,4 +12,8 @@ export class Node {
   clone() {
     return new Node(Symbol.keyFor(this.id));
   }
+
+  getChildren() {
+    return [];
+  }
 }

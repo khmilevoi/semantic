@@ -1,11 +1,16 @@
 import { Operator } from "./Operator";
 
 import { types } from "../../constants/types";
+import { orders } from "../../constants/orders";
 
 export class LessThen extends Operator {
   static regexp = types.OPERATORS.LESS_THAN;
 
-  execute() {
-    return null;
+  getOrder() {
+    return orders.LESS_THAN;
+  }
+
+  execute(left, right) {
+    return left <= right;
   }
 }

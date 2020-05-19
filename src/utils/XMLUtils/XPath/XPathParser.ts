@@ -27,6 +27,6 @@ export class XPathParser extends Parser<Token> {
 
   static SPLITTER = {
     SLASH: /\//,
-    SQUARE_BRACKET: /(?=\[)/,
+    // SQUARE_BRACKET: /(?=\[)/,
   };
 }

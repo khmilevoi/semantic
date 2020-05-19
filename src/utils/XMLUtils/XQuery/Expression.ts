@@ -1,11 +1,13 @@
 import { Token } from "../common/Token";
 
 import { Operator } from "./handlers/Operators/Operator";
+import { Tag, TNode } from "../XMLDocument";
 
 export class Expression {
   private child: Expression | Token;
   private operator: Operator;
-  private next?: Expression;
+  private next?: Expression | Token;
+  private result: any = null;
 
   constructor(
     token?: Expression | Token,
@@ -25,6 +27,10 @@ export class Expression {
     return (this.child = token);
   }
 
+  getResult() {
+    return this.result;
+  }
+
   getOperator() {
     return this.operator;
   }
@@ -39,5 +45,28 @@ export class Expression {
 
   setNext(next: Expression) {
     return (this.next = next);
+  }
+
+  execute(tag: Tag, params): number | boolean {
+    const { rewrite } = params;
+
+    // debugger;
+    if (this.result != null && !rewrite) {
+      return this.result;
+    }
+
+    const child = this.child && this.child.execute(tag, params);
+    const next = this.next && this.next.execute(tag, params);
+    const result = this.operator && this.operator.execute(child, next);
+
+    // debugger;
+
+    if (this.operator) {
+      this.result = result;
+
+      return result;
+    }
+
+    return child || next;
   }
 }

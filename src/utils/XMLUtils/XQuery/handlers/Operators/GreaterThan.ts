@@ -1,11 +1,16 @@
 import { Operator } from "./Operator";
 
 import { types } from "../../constants/types";
+import { orders } from "../../constants/orders";
 
 export class GreaterThan extends Operator {
   static regexp = types.OPERATORS.GREATER_THAN;
 
-  execute() {
-    return null;
+  getOrder() {
+    return orders.GREATER_THAN;
+  }
+
+  execute(left, right) {
+    return left >= right
   }
 }

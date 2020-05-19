@@ -12,7 +12,10 @@ export class FunctionHandler extends Handler<FunctionToken> {
     const func = new FunctionToken(
       token,
       name,
-      params.split(",").map((item) => item.trim())
+      params
+        .split(",")
+        .map((item) => item.trim())
+        .filter((item) => !!item)
     );
 
     return func;

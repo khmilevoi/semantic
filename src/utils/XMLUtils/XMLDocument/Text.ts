@@ -16,4 +16,8 @@ export class Text extends Node {
   setText(text) {
     return (this.text = text);
   }
+
+  getChildren() {
+    return [this];
+  }
 }

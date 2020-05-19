@@ -45,6 +45,10 @@ export class Tag extends Node {
   }
 
   findAll(name, propagation = true): Tag[] {
+    if (this.name === name) {
+      return [this];
+    }
+
     return this.children.reduce((tags, tag) => {
       if (tag instanceof Tag) {
         if (tag.name === name) {

@@ -1,3 +1,5 @@
+import { TNode } from "utils/XMLUtils/XMLDocument";
+
 export class Operator {
   static regexp: RegExp;
 
@@ -19,7 +21,15 @@ export class Operator {
     this.operator = token;
   }
 
-  execute(...args) {
-    return [...args];
+  getOrder() {
+    return Infinity;
+  }
+
+  getOperator() {
+    return this.operator;
+  }
+
+  execute(left: any, right: any): number | boolean {
+    throw new Error("Must be defined");
   }
 }

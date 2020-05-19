@@ -1,11 +1,16 @@
 import { Operator } from "./Operator";
 
 import { types } from "../../constants/types";
+import { orders } from "../../constants/orders";
 
 export class NotEqual extends Operator {
   static regexp = types.OPERATORS.NOT_EQUAL;
 
-  execute() {
-    return null;
+  getOrder() {
+    return orders.NOT_EQUAL;
+  }
+
+  execute(left, right) {
+    return left != right;
   }
 }

@@ -2,10 +2,10 @@ import { Operator } from "./Operator";
 
 import { types } from "../../constants/types";
 
-export class AND extends Operator {
+export class And extends Operator {
   static regexp = types.OPERATORS.AND;
 
-  execute() {
-    return null;
+  execute(left, right) {
+    return !!left && !!right;
   }
 }

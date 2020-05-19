@@ -1,11 +1,16 @@
 import { Operator } from "./Operator";
 
 import { types } from "../../constants/types";
+import { orders } from "../../constants/orders";
 
 export class Or extends Operator {
   static regexp = types.OPERATORS.OR;
 
-  execute() {
-    return null;
+  getOrder() {
+    return orders.OR;
+  }
+
+  execute(left, right) {
+    return !!left || !!right;
   }
 }

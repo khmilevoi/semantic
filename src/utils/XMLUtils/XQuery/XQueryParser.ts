@@ -84,19 +84,19 @@ export class XQueryParser extends Parser<THandel> {
         const [child, isNext] = this.createChild(currentExpression, parsed);
 
         if (isNext) {
-          stack.push(child, parsed);
-          expressions.push(child, parsed);
+          stack.push(child);
+          expressions.push(child);
         }
 
         stack.push(parsed);
         expressions.push(parsed);
 
         if (XQueryParser.type.L_BRACKET(token)) {
-          if (child) {
-            brackets.push(child, parsed);
-          } else {
+          // if (child) {
+          //   brackets.push(child);
+          // } else {
             brackets.push(parsed);
-          }
+          // }
         }
       }
 
