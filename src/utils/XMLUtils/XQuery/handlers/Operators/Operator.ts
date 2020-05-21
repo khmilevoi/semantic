@@ -1,4 +1,6 @@
-import { TNode } from "utils/XMLUtils/XMLDocument";
+import { TNode, Tag } from "utils/XMLUtils/XMLDocument";
+import { Expression } from "../../Expression";
+import { Token } from "utils/XMLUtils/common/Token";
 
 export class Operator {
   static regexp: RegExp;
@@ -29,7 +31,47 @@ export class Operator {
     return this.operator;
   }
 
-  execute(left: any, right: any): number | boolean {
-    throw new Error("Must be defined");
+  calc(left, right): any {
+    throw new Error("Must ne defined");
+  }
+
+  parseToken(token, tag, params): string {
+    if (token instanceof Token || token instanceof Expression) {
+      return token.execute(tag, params);
+    }
+
+    return token;
+  }
+
+  execute(
+    left: Token | Expression | number,
+    right: Token | Expression | number,
+    tag: Tag,
+    params
+  ) {
+    const executedLeft = this.parseToken(left, tag, params);
+
+    if (right instanceof Expression) {
+      const child = right.getChild().execute(tag, params);
+      const result = this.calc(executedLeft, child);
+
+      if (right.getNext()) {
+        const next = right.getNext().execute(tag, params);
+        const nextResult =
+          right && right.getOperator().execute(result, next, tag, params);
+
+        return nextResult;
+      }
+
+      return result;
+    }
+
+    const executedRight = this.parseToken(right, tag, params);
+
+    return this.calc(executedLeft, executedRight);
+  }
+
+  prepare(token: Token | Expression) {
+    return token;
   }
 }

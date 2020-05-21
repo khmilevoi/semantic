@@ -10,7 +10,7 @@ export class Plus extends Operator {
     return orders.PLUS;
   }
 
-  execute(left, right) {
+  calc(left, right) {
     return Number.parseFloat(left) + Number.parseFloat(right);
   }
 }

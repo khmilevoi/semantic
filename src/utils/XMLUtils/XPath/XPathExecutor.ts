@@ -13,7 +13,7 @@ export class XPathExecutor extends Executor<Tag, Token[]> {
     }
 
     if (other.length === 0) {
-      return children.map((child) => child.getChildren()).flat(Infinity);
+      return children;
     }
 
     const tags = children.reduce((result, child) => {

@@ -9,7 +9,7 @@ export class StrictGreaterThan extends Operator {
   }
 
  
-  execute(left, right) {
+  calc(left, right) {
     return left > right;
   }
 }

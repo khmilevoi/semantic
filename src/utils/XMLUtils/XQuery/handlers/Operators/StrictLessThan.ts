@@ -10,7 +10,7 @@ export class StrictLessThen extends Operator {
     return orders.STRICT_LESS_THAN;
   }
 
-  execute(left, right) {
+  calc(left, right) {
     return left < right;
   }
 }

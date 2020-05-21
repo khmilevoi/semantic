@@ -10,7 +10,7 @@ export class GreaterThan extends Operator {
     return orders.GREATER_THAN;
   }
 
-  execute(left, right) {
+  calc(left, right) {
     return left >= right
   }
 }

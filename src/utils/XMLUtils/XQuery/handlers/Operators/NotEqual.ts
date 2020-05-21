@@ -10,7 +10,7 @@ export class NotEqual extends Operator {
     return orders.NOT_EQUAL;
   }
 
-  execute(left, right) {
+  calc(left, right) {
     return left != right;
   }
 }

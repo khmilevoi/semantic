@@ -55,21 +55,17 @@ export class XQueryParser extends Parser<THandel> {
       .map((item) => item && item.trim())
       .filter((item) => !!item);
 
-    const expressions: Expression[] = [];
     const root = new Expression();
+    const expressions: Expression[] = [root];
     const tree: TTree = { root, expressions };
 
-    const stack: Expression[] = [tree.root];
-    const brackets: Expression[] = [tree.root];
-
-    // debugger;
+    const stack: Expression[] = [root];
+    const brackets: Expression[] = [root];
 
     splitted.forEach((token) => {
       const currentExpression = stack[stack.length - 1];
 
       const parsed = this.parseToken(token);
-
-      // debugger;
 
       if (parsed instanceof Token) {
         const [child, isNext] = this.createChild(currentExpression, parsed);
@@ -92,11 +88,7 @@ export class XQueryParser extends Parser<THandel> {
         expressions.push(parsed);
 
         if (XQueryParser.type.L_BRACKET(token)) {
-          // if (child) {
-          //   brackets.push(child);
-          // } else {
-            brackets.push(parsed);
-          // }
+          brackets.push(parsed);
         }
       }
 

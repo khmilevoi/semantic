@@ -10,7 +10,7 @@ export class Equal extends Operator {
     return orders.EQUAL;
   }
 
-  execute(left, right) {
+  calc(left, right) {
     return left == right;
   }
 }

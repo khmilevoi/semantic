@@ -10,7 +10,7 @@ export class Mod extends Operator {
     return orders.MOD;
   }
 
-  execute(left, right) {
+  calc(left, right) {
     return Number.parseInt(left) % Number.parseInt(right);
   }
 }

@@ -5,28 +5,22 @@ import { TTree } from "./XQueryParser";
 
 export class XQueryExecutor extends Executor<Tag[], TTree> {
   executeExpression(source: Tag[], tree: TTree): Tag[] {
-    const expressions = tree.expressions
-      .filter((item) => item.getOperator())
-      .sort((left, right) => {
-        const leftOperator = left.getOperator();
-        const rightOperator = right.getOperator();
+    const expressions = tree.expressions.sort((left, right) => {
+      const leftOperator = left.getOperator();
+      const rightOperator = right.getOperator();
 
-        const leftOrder = leftOperator.getOrder();
-        const rightOrder = rightOperator.getOrder();
+      const leftOrder = leftOperator ? leftOperator.getOrder() : Infinity;
+      const rightOrder = rightOperator ? rightOperator.getOrder() : Infinity;
 
-        return leftOrder - rightOrder;
-      });
+      return leftOrder - rightOrder;
+    });
 
     return source.filter((tag, index) => {
       expressions.forEach((item) =>
         item.execute(tag, { rewrite: true, args: [index] })
       );
 
-      debugger;
-
       const result = tree.root.execute(tag, { args: [index] });
-
-      debugger;
 
       return !!result;
     });

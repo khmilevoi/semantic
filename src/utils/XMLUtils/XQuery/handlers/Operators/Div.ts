@@ -10,7 +10,7 @@ export class Div extends Operator {
     return orders.DIV;
   }
 
-  execute(left, right) {
+  calc(left, right) {
     return Number.parseFloat(left) / Number.parseFloat(right);
   }
 }

@@ -10,7 +10,7 @@ export class Minus extends Operator {
     return orders.MINUS;
   }
 
-  execute(left, right) {
+  calc(left, right) {
     return Number.parseFloat(left) - Number.parseFloat(right);
   }
 }

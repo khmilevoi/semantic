@@ -10,7 +10,7 @@ export class Or extends Operator {
     return orders.OR;
   }
 
-  execute(left, right) {
+  calc(left, right) {
     return !!left || !!right;
   }
 }

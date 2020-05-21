@@ -3,6 +3,11 @@ import { Token } from "../common/Token";
 import { Operator } from "./handlers/Operators/Operator";
 import { Tag, TNode } from "../XMLDocument";
 
+type Params = {
+  rewrite?: boolean;
+  args?: any[];
+};
+
 export class Expression {
   private child: Expression | Token;
   private operator: Operator;
@@ -47,26 +52,30 @@ export class Expression {
     return (this.next = next);
   }
 
-  execute(tag: Tag, params): number | boolean {
+  prepare(token: Expression | Token, tag, ...args) {
+    return this.operator
+      ? this.operator.prepare(token)
+      : token.execute(tag, ...args);
+  }
+
+  execute(tag: Tag, params: Params = {}): number | boolean {
     const { rewrite } = params;
 
-    // debugger;
     if (this.result != null && !rewrite) {
       return this.result;
     }
 
-    const child = this.child && this.child.execute(tag, params);
-    const next = this.next && this.next.execute(tag, params);
-    const result = this.operator && this.operator.execute(child, next);
+    const child = this.child && this.prepare(this.child, tag, params);
+    const next = this.next && this.prepare(this.next, tag, params);
+    const result =
+      this.operator && this.operator.execute(child, next, tag, params);
 
-    // debugger;
-
-    if (this.operator) {
+    if (result != null) {
       this.result = result;
 
       return result;
     }
 
-    return child || next;
+    return child == null ? next : child;
   }
 }
