@@ -10,19 +10,6 @@ export class XQueryExecutor extends Executor<Tag[], TTree> {
       const leftOrder = left.calcPriority(expressions.length);
       const rightOrder = right.calcPriority(expressions.length);
 
-      console.log(
-        "left: ",
-        leftOrder,
-        left.getDeep(),
-        left.getOperator() && left.getOperator().getOrder()
-      );
-      console.log(
-        "right: ",
-        rightOrder,
-        right.getDeep(),
-        right.getOperator() && right.getOperator().getOrder()
-      );
-
       return leftOrder - rightOrder;
     });
   }
@@ -30,8 +17,8 @@ export class XQueryExecutor extends Executor<Tag[], TTree> {
   calcExpression(
     expressions: Expression[],
     tree: TTree,
+    tag?: Tag,
     index?: number,
-    tag?: Tag
   ) {
     expressions.forEach((item) =>
       item.execute(tag, { rewrite: true, args: [index] })
@@ -46,9 +33,7 @@ export class XQueryExecutor extends Executor<Tag[], TTree> {
     const expressions = this.sortExpressions(tree.expressions);
 
     return source.filter((tag, index) => {
-      const result = this.calcExpression(expressions, tree, index, tag);
-
-      debugger;
+      const result = this.calcExpression(expressions, tree, tag, index);
 
       if (typeof result === "number") {
         return index === result;
@@ -72,11 +57,9 @@ export class XQueryExecutor extends Executor<Tag[], TTree> {
     return result;
   }
 
-  calc(tree: TTree) {
+  calc(tree: TTree, tag?: Tag) {
     const expressions = this.sortExpressions(tree.expressions);
 
-    debugger;
-
-    return this.calcExpression(expressions, tree);
+    return this.calcExpression(expressions, tree, tag);
   }
 }

@@ -114,6 +114,10 @@ export class XQueryParser extends Parser<THandel> {
       }
     });
 
+    if (brackets.length !== 1) {
+      throw new Error("Incorrect balance of brackets");
+    }
+
     return tree;
   }
 

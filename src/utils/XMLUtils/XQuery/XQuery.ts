@@ -53,7 +53,7 @@ parser.addHandler(new NodeHandler(NodeToken));
 const executor = new XQueryExecutor();
 
 export class XQuery {
-  private xPathString: string;
+  private xQueryString: string;
   private parser: XQueryParser;
   private executor: XQueryExecutor;
 
@@ -65,7 +65,7 @@ export class XQuery {
     customParser = parser,
     customExecutor = executor
   ) {
-    this.xPathString = xpath.trim();
+    this.xQueryString = xpath.trim();
     this.parser = customParser;
     this.executor = customExecutor;
   }
@@ -75,7 +75,7 @@ export class XQuery {
   }
 
   parse() {
-    const tree: TTree = this.parser.parse(this.xPathString);
+    const tree: TTree = this.parser.parse(this.xQueryString);
 
     this.tree = tree;
     this.root = tree.root;
@@ -94,11 +94,11 @@ export class XQuery {
     return this.executor.execute(tags, this.tree);
   }
 
-  calc() {
+  calc(tag?: Tag) {
     if (!this.root) {
       throw new Error("Need to call parse");
     }
 
-    return this.executor.calc(this.tree);
+    return this.executor.calc(this.tree, tag);
   }
 }

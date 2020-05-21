@@ -79,10 +79,8 @@ export class Expression {
     );
   }
 
-  execute(tag: Tag, params: Params = {}): number | boolean {
+  execute(tag: Tag, params: Params = {}): number | boolean | string {
     const { rewrite } = params;
-
-    // debugger;
 
     if (this.result != null && !rewrite) {
       return this.result;
@@ -93,7 +91,9 @@ export class Expression {
     const result =
       this.operator && this.operator.execute(child, next, tag, params);
 
-    // debugger;
+    if (Number.isNaN(result)) {
+      throw new Error(`Incorrect expression [${[result].join()}]`);
+    }
 
     if (result != null) {
       this.result = result;
