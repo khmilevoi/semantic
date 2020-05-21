@@ -44,20 +44,22 @@ const main = async () => {
 
     await saveFile("src/results/document.html", htmlDocument.toString());
 
-    const xpathString =
-      "products/product[((price + 5)+(2 * position() - @index div 2)) > 10000]/name[include(S19)]";
+    // const xpathString =
+    //   "products/product[((price + 5)+(2 * position() - @index div 2)) > 10000]/name[include(S19)]";
 
-    const xpath = new XPath(xpathString);
-    xpath.parse();
+    // const xpath = new XPath(xpathString);
+    // xpath.parse();
 
-    const result = xpath.execute(modifiedXmlDocument);
+    // const xpathResult = xpath.execute(modifiedXmlDocument);
 
-    await saveFile("src/results/xpath_1.xml", result.toString());
+    // await saveFile("src/results/xpath_1.xml", xpathResult.toString());
 
-    // const xquery = new XQuery("1 + 2 * (3 - (4 * ((5 - 6) + 7 div 8))) + 9");
-    // xquery.parse();
+    const xquery = new XQuery("1 + 2 * (3 - (4 * ((5 - 6) + 7 div 8))) + 9");
+    xquery.parse();
 
-    // const result = xquery.execute([modifiedXmlDocument.getRoot()]);
+    const xQueryResult = xquery.calc();
+
+    console.log(xQueryResult);
 
     debugger;
   } catch (error) {

@@ -51,7 +51,7 @@ export class Operator {
   ) {
     const executedLeft = this.parseToken(left, tag, params);
 
-    if (right instanceof Expression) {
+    if (right instanceof Expression && right.getResult() == null) {
       const child = right.getChild().execute(tag, params);
       const result = this.calc(executedLeft, child);
 

@@ -93,7 +93,8 @@ export class XQueryParser extends Parser<THandel> {
       }
 
       if (parsed instanceof Operator) {
-        currentExpression.setOperator(parsed);
+        const deep = brackets.length;
+        currentExpression.setOperator(parsed, deep);
       }
 
       if (

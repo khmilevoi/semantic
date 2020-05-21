@@ -2,25 +2,57 @@ import { Executor } from "../common/Executor";
 
 import { XMLDocument, Tag } from "../XMLDocument";
 import { TTree } from "./XQueryParser";
+import { Expression } from "./Expression";
 
 export class XQueryExecutor extends Executor<Tag[], TTree> {
-  executeExpression(source: Tag[], tree: TTree): Tag[] {
-    const expressions = tree.expressions.sort((left, right) => {
-      const leftOperator = left.getOperator();
-      const rightOperator = right.getOperator();
+  sortExpressions(expressions: Expression[]) {
+    return expressions.sort((left, right) => {
+      const leftOrder = left.calcPriority(expressions.length);
+      const rightOrder = right.calcPriority(expressions.length);
 
-      const leftOrder = leftOperator ? leftOperator.getOrder() : Infinity;
-      const rightOrder = rightOperator ? rightOperator.getOrder() : Infinity;
+      console.log(
+        "left: ",
+        leftOrder,
+        left.getDeep(),
+        left.getOperator() && left.getOperator().getOrder()
+      );
+      console.log(
+        "right: ",
+        rightOrder,
+        right.getDeep(),
+        right.getOperator() && right.getOperator().getOrder()
+      );
 
       return leftOrder - rightOrder;
     });
+  }
+
+  calcExpression(
+    expressions: Expression[],
+    tree: TTree,
+    index?: number,
+    tag?: Tag
+  ) {
+    expressions.forEach((item) =>
+      item.execute(tag, { rewrite: true, args: [index] })
+    );
+
+    const result = tree.root.execute(tag, { args: [index] });
+
+    return result;
+  }
+
+  executeExpression(source: Tag[], tree: TTree): Tag[] {
+    const expressions = this.sortExpressions(tree.expressions);
 
     return source.filter((tag, index) => {
-      expressions.forEach((item) =>
-        item.execute(tag, { rewrite: true, args: [index] })
-      );
+      const result = this.calcExpression(expressions, tree, index, tag);
 
-      const result = tree.root.execute(tag, { args: [index] });
+      debugger;
+
+      if (typeof result === "number") {
+        return index === result;
+      }
 
       return !!result;
     });
@@ -38,5 +70,13 @@ export class XQueryExecutor extends Executor<Tag[], TTree> {
     root.addChild(...executed);
 
     return result;
+  }
+
+  calc(tree: TTree) {
+    const expressions = this.sortExpressions(tree.expressions);
+
+    debugger;
+
+    return this.calcExpression(expressions, tree);
   }
 }

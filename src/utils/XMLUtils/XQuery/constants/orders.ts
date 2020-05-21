@@ -13,3 +13,5 @@ export const orders = {
   STRICT_GREATER_THAN: 5,
   GREATER_THAN: 5,
 };
+
+export const MAX_ORDER = Math.max(...Object.values(orders));

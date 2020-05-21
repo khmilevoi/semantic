@@ -93,4 +93,12 @@ export class XQuery {
 
     return this.executor.execute(tags, this.tree);
   }
+
+  calc() {
+    if (!this.root) {
+      throw new Error("Need to call parse");
+    }
+
+    return this.executor.calc(this.tree);
+  }
 }

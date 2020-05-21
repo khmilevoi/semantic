@@ -2,6 +2,7 @@ import { Token } from "../common/Token";
 
 import { Operator } from "./handlers/Operators/Operator";
 import { Tag, TNode } from "../XMLDocument";
+import { MAX_ORDER } from "./constants/orders";
 
 type Params = {
   rewrite?: boolean;
@@ -11,6 +12,7 @@ type Params = {
 export class Expression {
   private child: Expression | Token;
   private operator: Operator;
+  private deep: number = 0;
   private next?: Expression | Token;
   private result: any = null;
 
@@ -40,8 +42,24 @@ export class Expression {
     return this.operator;
   }
 
-  setOperator(operator: Operator) {
+  setOperator(operator: Operator, deep?: number) {
+    this.deep = deep;
     return (this.operator = operator);
+  }
+
+  getDeep() {
+    return this.deep;
+  }
+
+  calcPriority(maxDeep: number) {
+    if (this.operator) {
+      const order = this.operator.getOrder() / MAX_ORDER;
+      const deep = 1 - this.deep / maxDeep;
+
+      return (order + deep) / 2;
+    }
+
+    return Infinity;
   }
 
   getNext() {
@@ -53,22 +71,29 @@ export class Expression {
   }
 
   prepare(token: Expression | Token, tag, ...args) {
-    return this.operator
-      ? this.operator.prepare(token)
-      : token.execute(tag, ...args);
+    return (
+      token &&
+      (this.operator
+        ? this.operator.prepare(token)
+        : token.execute(tag, ...args))
+    );
   }
 
   execute(tag: Tag, params: Params = {}): number | boolean {
     const { rewrite } = params;
 
+    // debugger;
+
     if (this.result != null && !rewrite) {
       return this.result;
     }
 
-    const child = this.child && this.prepare(this.child, tag, params);
-    const next = this.next && this.prepare(this.next, tag, params);
+    const child = this.prepare(this.child, tag, params);
+    const next = this.prepare(this.next, tag, params);
     const result =
       this.operator && this.operator.execute(child, next, tag, params);
+
+    // debugger;
 
     if (result != null) {
       this.result = result;
