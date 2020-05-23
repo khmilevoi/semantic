@@ -11,6 +11,10 @@ export class NodeToken extends Token {
   execute(tag: Tag): string {
     const element = tag.find(this.getContent());
 
+    if (!element) {
+      debugger;
+    }
+
     return element
       .getChildren()
       .filter((item) => item instanceof Text)

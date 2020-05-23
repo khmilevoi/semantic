@@ -12,7 +12,7 @@ type Params = {
 export class Expression {
   private child: Expression | Token;
   private next?: Expression | Token;
-  
+
   private operator: Operator;
   private deep: number = 0;
   private result: any = null;

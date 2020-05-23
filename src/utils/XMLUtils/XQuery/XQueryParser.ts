@@ -6,10 +6,11 @@ import { Parser } from "../common/Parser";
 import { Token } from "../common/Token";
 
 import { Operator } from "./handlers/Operators/Operator";
+import { Function } from "./handlers/Functions/Function";
 
 import { types } from "./constants/types";
 
-export type THandel = Expression | Operator | Token;
+export type THandel = Expression | Operator | Token | Function;
 
 export type TTree = { root: Expression; expressions: Expression[] };
 
@@ -67,16 +68,17 @@ export class XQueryParser extends Parser<THandel> {
 
       const parsed = this.parseToken(token);
 
-      if (parsed instanceof Token) {
+      if (parsed instanceof Operator) {
+        const deep = brackets.length;
+        currentExpression.setOperator(parsed, deep);
+      } else if (parsed instanceof Token) {
         const [child, isNext] = this.createChild(currentExpression, parsed);
 
         if (isNext) {
           stack.push(child);
           expressions.push(child);
         }
-      }
-
-      if (parsed instanceof Expression) {
+      } else if (parsed instanceof Expression) {
         const [child, isNext] = this.createChild(currentExpression, parsed);
 
         if (isNext) {
@@ -90,11 +92,6 @@ export class XQueryParser extends Parser<THandel> {
         if (XQueryParser.type.L_BRACKET(token)) {
           brackets.push(parsed);
         }
-      }
-
-      if (parsed instanceof Operator) {
-        const deep = brackets.length;
-        currentExpression.setOperator(parsed, deep);
       }
 
       if (

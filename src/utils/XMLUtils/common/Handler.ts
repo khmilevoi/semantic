@@ -1,5 +1,3 @@
-import { Token } from "./Token";
-
 export abstract class Handler<T> {
   regexp: RegExp;
 

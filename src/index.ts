@@ -5,9 +5,10 @@ import { readURL } from "utils/readURL";
 import { saveFile } from "utils/saveFile";
 import { readFile } from "utils/readFile";
 
-import { XMLDocument, XSLExecutor, XPath, XQuery } from "utils/XMLUtils";
+import { XMLDocument, XSLExecutor } from "utils/XMLUtils";
 
 import { modifyTree } from "modifyTree";
+import { queries } from "queries";
 
 const main = async () => {
   try {
@@ -44,22 +45,15 @@ const main = async () => {
 
     await saveFile("src/results/document.html", htmlDocument.toString());
 
-    const xpathString =
-      "products/product[((price + 5)+(2 * position() - @index div 2)) > 10000]/name[include(S19)]";
+    const queryResults = queries(modifiedXmlDocument);
 
-    const xpath = new XPath(xpathString);
-    xpath.parse();
+    queryResults.forEach((result, index) => {
+      if (result instanceof XMLDocument) {
+        return saveFile(`src/results/xpath_${index}.xml`, result.toString());
+      }
 
-    const xpathResult = xpath.execute(modifiedXmlDocument);
-
-    await saveFile("src/results/xpath_1.xml", xpathResult.toString());
-
-    const xquery = new XQuery("1 + 2 * (3 - (4 * ((5 - 6) + 7 div 8))) + 9");
-    xquery.parse();
-
-    const xQueryResult = xquery.calc();
-
-    console.log(xQueryResult);
+      console.log(result);
+    });
 
     debugger;
   } catch (error) {

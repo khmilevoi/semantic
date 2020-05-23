@@ -13,13 +13,13 @@
 		<id>
 			55620
 		</id>
-		<comments amount="3">
+		<comments amount="4">
 			<comment index="0">
 				<name>
 					A
 				</name>
 				<content>
-					Kx\hPmuzmnioM`v}ZnCvqGhqGd|_^pYHhwIJKCD\{]h]Bd[`Y|t
+					vlLdUQNTnm][iJyPOpCQjSTFewNFfGZjsKitpFqrWXY{P
 				</content>
 			</comment>
 			<comment index="1">
@@ -27,7 +27,7 @@
 					B
 				</name>
 				<content>
-					ZuC]C]`kuc|GShhkobWovuBZkbEdCSoMNao_^f__IztERHmr
+					bv|bVWCmG]pnIxjK_KFN[gAfe`jdpE~yqrpCsrINBbIwoQVjS
 				</content>
 			</comment>
 			<comment index="2">
@@ -35,7 +35,15 @@
 					C
 				</name>
 				<content>
-					ejEUcPD[VG]wLbOcIAl}kQQ{Tm{QAVTDsPdwJ~WgDDxjBPrVI
+					VXa\rREdKkKqEboXyKIyrK`BII_v`[FhljGOaWbpYfkmhTZ
+				</content>
+			</comment>
+			<comment index="3">
+				<name>
+					D
+				</name>
+				<content>
+					}C^O\J\Uve^EPYtrGNolGGjhfMmpmMwFiIMnvdeQ~gKbOQI
 				</content>
 			</comment>
 		</comments>
@@ -53,7 +61,24 @@
 		<id>
 			55375
 		</id>
-		<comments amount="0"/>
+		<comments amount="2">
+			<comment index="0">
+				<name>
+					A
+				</name>
+				<content>
+					xmCXY~YAfswUqo^MqA^jRKyf_DdlSeTkX~tF^FJWkdYQBEvAv
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					\yjlBTlDaIIZxCMVPXpaSLqVEqMHjDbClvTTG\ikceoQFkzr
+				</content>
+			</comment>
+		</comments>
 	</product>
 	<product index="3">
 		<name description="В наличии">
@@ -68,21 +93,13 @@
 		<id>
 			54867
 		</id>
-		<comments amount="2">
+		<comments amount="1">
 			<comment index="0">
 				<name>
 					A
 				</name>
 				<content>
-					cKdeZBe^zcIkxpV[QFkWeuBgAILGSLB[`RJoNkOD\kuJ~\l
-				</content>
-			</comment>
-			<comment index="1">
-				<name>
-					B
-				</name>
-				<content>
-					]\efbWoD^IveSrlxSralUjLfxePooeZIaC`rBXmLZ[MLdpT
+					^UfhVepoDnv|Ij\jzePvAB}]ePt[toFsD|XlCjJN~|{{
 				</content>
 			</comment>
 		</comments>
@@ -100,13 +117,29 @@
 		<id>
 			55545
 		</id>
-		<comments amount="1">
+		<comments amount="3">
 			<comment index="0">
 				<name>
 					A
 				</name>
 				<content>
-					mpkRJhtWroIJv~quWyIQfU}pD[e_di_UOghRS`]UVROlHUCO
+					\ZNVKAr_]hHACVk]XukvQm|BOIkLyKFyqK`on\rHW\[fFCR
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					`FRAfCot}TluNb}vSO^TfB]}ZsopCiGoEbxJq}ol}RtcLc_tq
+				</content>
+			</comment>
+			<comment index="2">
+				<name>
+					C
+				</name>
+				<content>
+					EDAH]n}UhplxAKMYiR_^PZpeKDswOjFoo|YDMsGgLojO_V]~Da
 				</content>
 			</comment>
 		</comments>
@@ -124,13 +157,13 @@
 		<id>
 			55471
 		</id>
-		<comments amount="2">
+		<comments amount="3">
 			<comment index="0">
 				<name>
 					A
 				</name>
 				<content>
-					uOh{L\W^h`JjEHTapi\\Yhbsjew{u|apFbfx[faGqTUnN{XT
+					XfxDqCNAdQREpkqoCHr|yZWxcGNqqFabrBEevS}RYlqnDRWf
 				</content>
 			</comment>
 			<comment index="1">
@@ -138,7 +171,15 @@
 					B
 				</name>
 				<content>
-					hdKcW[ppdzIMQzFEicbbAQdR`oRTDdiig{\c]GgebKkFMYMD
+					Ye`OSu{Db{TKJFAW_nqRfxbCuTMiuDWeakxYSkI{[l~^Z]WRA
+				</content>
+			</comment>
+			<comment index="2">
+				<name>
+					C
+				</name>
+				<content>
+					FNkjQJoCFHWGLelFAnAgAc}l_EcRlNIFZEriVupqFFG`tdX[dj
 				</content>
 			</comment>
 		</comments>
@@ -162,7 +203,7 @@
 					A
 				</name>
 				<content>
-					idtGwELfBh[P`fxDvW\mgpXFcNjpi^eHiwhl_KiObD{|LKk\]O^v
+					[HpIHmYvYUtIhhFqJYdpWQpvTcbiqTs\fGLMZhui}uQPAyett
 				</content>
 			</comment>
 			<comment index="1">
@@ -170,7 +211,7 @@
 					B
 				</name>
 				<content>
-					hNKMzUrepVkZFRYfIcAxrydtw|Ys]I~Tfaj_Vgjqwbv_hPLSs{
+					ZCWbAkbC^TFEXsuw}vXbR[~l~}tJZpP]F\}B}BL{DrqoDoxVqTU|
 				</content>
 			</comment>
 			<comment index="2">
@@ -178,7 +219,7 @@
 					C
 				</name>
 				<content>
-					jqVFEbNlwdb`{|am[~QNTYuc\AMKSojPqm[agTZT[]utWxMq\
+					\QnMmFdAGoQzFXHsOnmWfVmk~ZGmAQBY^EAPX|S{NRn]PVjz
 				</content>
 			</comment>
 			<comment index="3">
@@ -186,7 +227,7 @@
 					D
 				</name>
 				<content>
-					kcYjxY}]VX`s|GFeTeB~zELQJBwnVYZjmNJLeNi|MyxSXHyQWi`
+					QSlWXUfjO{hbW_T`vxjgYcyq^UqeF~dzEmgMD||R{vTcTCIa
 				</content>
 			</comment>
 		</comments>
@@ -204,29 +245,13 @@
 		<id>
 			55681
 		</id>
-		<comments amount="3">
+		<comments amount="1">
 			<comment index="0">
 				<name>
 					A
 				</name>
 				<content>
-					vsecBFOvy~DiQL[ewPMBb^CvLR|xF\s]lNZhxX]r^SETReD|p
-				</content>
-			</comment>
-			<comment index="1">
-				<name>
-					B
-				</name>
-				<content>
-					Eswe[lstqNYIB|kUvATTxKTdKMUkWFwYft`zrCQX^E]i[Jehp
-				</content>
-			</comment>
-			<comment index="2">
-				<name>
-					C
-				</name>
-				<content>
-					xiTwAoixhpqXj[]uIEjNrxOvZA{wJVOlhHXwLi^waJJ^oJH}S
+					hDuIa~VeCbGCrI}rtn|Idgu{kaH}kzFK|nnVKlYzumKGzBOcYk
 				</content>
 			</comment>
 		</comments>
@@ -244,16 +269,7 @@
 		<id>
 			55669
 		</id>
-		<comments amount="1">
-			<comment index="0">
-				<name>
-					A
-				</name>
-				<content>
-					SbY^AneOPgx|{VdETiihIR|TGrSwVjIgG[{RzBhNTBrR^fqjm
-				</content>
-			</comment>
-		</comments>
+		<comments amount="0"/>
 	</product>
 	<product index="9">
 		<name description="1-31 июля с завода">
@@ -283,13 +299,37 @@
 		<id>
 			55670
 		</id>
-		<comments amount="1">
+		<comments amount="4">
 			<comment index="0">
 				<name>
 					A
 				</name>
 				<content>
-					YPi~lch[U_zxlpZ^JlBs]HCEbxmKFQsE}DKRgbVBzKVzxGerMq
+					VT{}Yw|}o{OflijmhAE]eh}xuTYYoPgUnxnUooTE{HeMNEnXl
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					\^_klVnTgvXE{DvrIRcHDU}WFcxo|xrduqas`}QXwR^GcJLtRosp
+				</content>
+			</comment>
+			<comment index="2">
+				<name>
+					C
+				</name>
+				<content>
+					o}WdolhqF`hHrhIKkK[VtqybWR}x~TxN\dharpd{Xea{EVtAsT[h
+				</content>
+			</comment>
+			<comment index="3">
+				<name>
+					D
+				</name>
+				<content>
+					XcCdK~SzoeJBKTVeCJUfxJi~lifyKr~b~C}ZpWRiibd}`MU\EZ
 				</content>
 			</comment>
 		</comments>
@@ -313,7 +353,7 @@
 					A
 				</name>
 				<content>
-					ly~BrJT~iGGrXypObkRtUVfy|gHejPhYqE_WM_yd\t]cgbNoE
+					jYR^^DYjiVKcJcMhgTVVIrH_L~e{WaeQLC_LqUA{bm}TmeW|
 				</content>
 			</comment>
 			<comment index="1">
@@ -321,7 +361,7 @@
 					B
 				</name>
 				<content>
-					iHaP\Q_uC[uJQ]_Qn^r[^fKyH`bb{^PxQqIjCpEwkT[~EtVDqE`
+					pMXo^[yKA~fAgtaKWHyREkzBjas{vulpcGOZxaXRNN~WtBDw
 				</content>
 			</comment>
 			<comment index="2">
@@ -329,7 +369,7 @@
 					C
 				</name>
 				<content>
-					bCq]tIr|VZ\VuXlHp`FGEBsxbZ`PkSWGVCyQtWImfrJKY[boHt
+					nkwr\k\QoiEsTKYgmOkfDvymX}xKfA{tGY{yhsKhMpjwRExr
 				</content>
 			</comment>
 		</comments>

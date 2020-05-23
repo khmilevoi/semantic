@@ -1,6 +1,7 @@
 import { Tag, Text, XMLDocument } from "utils/XMLUtils";
 
 export const modifyTree = (document: XMLDocument) => {
+  debugger
   const productContainer = document.find("products");
 
   const names = productContainer.findAll("name");

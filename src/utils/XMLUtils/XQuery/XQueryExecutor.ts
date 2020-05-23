@@ -14,17 +14,12 @@ export class XQueryExecutor extends Executor<Tag[], TTree> {
     });
   }
 
-  calcExpression(
-    expressions: Expression[],
-    tree: TTree,
-    tag?: Tag,
-    index?: number,
-  ) {
+  calcExpression(expressions: Expression[], tree: TTree, tag?: Tag, ...args) {
     expressions.forEach((item) =>
-      item.execute(tag, { rewrite: true, args: [index] })
+      item.execute(tag, { rewrite: true, args: [...args] })
     );
 
-    const result = tree.root.execute(tag, { args: [index] });
+    const result = tree.root.execute(tag, { args: [...args] });
 
     return result;
   }
@@ -57,9 +52,9 @@ export class XQueryExecutor extends Executor<Tag[], TTree> {
     return result;
   }
 
-  calc(tree: TTree, tag?: Tag) {
+  calc(tree: TTree, tag?: Tag, ...args) {
     const expressions = this.sortExpressions(tree.expressions);
 
-    return this.calcExpression(expressions, tree, tag);
+    return this.calcExpression(expressions, tree, tag, ...args);
   }
 }

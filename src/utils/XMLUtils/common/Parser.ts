@@ -1,7 +1,6 @@
 import { Handler } from "./Handler";
 
 import { combineRegExp } from "./combineRegExp";
-import { Token } from "./Token";
 
 export abstract class Parser<T> {
   private handlers: Handler<T>[] = [];

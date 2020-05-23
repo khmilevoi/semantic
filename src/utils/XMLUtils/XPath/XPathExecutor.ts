@@ -3,10 +3,10 @@ import { Token } from "../common/Token";
 import { XMLDocument, Tag, TNode } from "../XMLDocument";
 
 export class XPathExecutor extends Executor<Tag, Token[]> {
-  executePath(root: TNode, path: Token[]): TNode[] {
+  executePath(root: TNode, path: Token[], prev?: TNode[]): TNode[] {
     const [first, ...other] = path;
 
-    const children = first.execute(root);
+    const children: TNode = first.execute(root, prev);
 
     if (!Array.isArray(children)) {
       throw new Error(`Handler return incorrect value [${children}]`);
@@ -17,7 +17,7 @@ export class XPathExecutor extends Executor<Tag, Token[]> {
     }
 
     const tags = children.reduce((result, child) => {
-      const currentResult = this.executePath(child, other);
+      const currentResult = this.executePath(child, other, children);
 
       return [...result, ...currentResult];
     }, []);

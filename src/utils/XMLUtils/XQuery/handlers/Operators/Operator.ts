@@ -2,14 +2,16 @@ import { Tag } from "utils/XMLUtils/XMLDocument";
 import { Token } from "utils/XMLUtils/common/Token";
 import { Expression } from "../../Expression";
 
-export class Operator {
+export class Operator extends Token {
+  static type = "operator";
+
   static regexp: RegExp;
 
   static verify(token: string) {
     return !!this.regexp && this.regexp.test(token);
   }
 
-  static createOperator<T extends Operator>(token: string): T | Operator {
+  static createToken(token: string): Operator {
     if (this === Operator.constructor) {
       throw new Error("This is abstract class");
     } else {
@@ -20,6 +22,8 @@ export class Operator {
   private operator: string;
 
   constructor(token: string) {
+    super(Operator.type, token);
+
     this.operator = token;
   }
 
@@ -55,10 +59,11 @@ export class Operator {
       const child = right.getChild().execute(tag, params);
       const result = this.calc(executedLeft, child);
 
-      if (right.getNext()) {
+      if (right.getNext() && right.getOperator()) {
         const next = right.getNext().execute(tag, params);
-        const nextResult =
-          right && right.getOperator().execute(result, next, tag, params);
+        const nextResult = right
+          .getOperator()
+          .execute(result, next, tag, params);
 
         return nextResult;
       }

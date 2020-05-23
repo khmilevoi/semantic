@@ -7,9 +7,12 @@ import { PredicateHandler } from "./handlers/Predicate/PredicateHandler";
 
 import { XMLDocument, Tag } from "../XMLDocument";
 import { XPathExecutor } from "./XPathExecutor";
+import { AxeHandler } from "./handlers/Axes/AxeHandler";
+import { PrecedingSibling } from "./handlers/Axes/tokens/PrecedingSibling";
 
 const parser = new XPathParser();
 
+parser.addHandler(new AxeHandler().addToken(PrecedingSibling));
 parser.addHandler(new NodeHandler());
 parser.addHandler(new PredicateHandler());
 

@@ -17,7 +17,7 @@ export class Token {
     return this.content;
   }
 
-  execute(tag?: TNode, params: Object = {}): TNode[] | any {
+  execute(...args): TNode[] | any {
     throw new Error(`Must be defined [${this.type}]`);
   }
 }

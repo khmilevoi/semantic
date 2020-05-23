@@ -1,13 +1,21 @@
 import { XQueryParser, TTree } from "./XQueryParser";
 
-import { FunctionHandler } from "./handlers/Function/FunctionHandler";
+import { NodeHandler } from "../common/Node/NodeHandler";
+
+import { Expression } from "./Expression";
+import { XMLDocument, Tag, TNode } from "../XMLDocument";
+import { XQueryExecutor } from "./XQueryExecutor";
+
+import { FunctionHandler } from "./handlers/Functions/FunctionHandler";
 import { BracketsHandler } from "./handlers/Brackets/BracketsHandler";
 import { OperatorsHandler } from "./handlers/Operators/OperatorsHandler";
 import { AttributeHandler } from "./handlers/Attribute/AttributeHandler";
-import { Plus } from "./handlers/Operators/tokens/Plus";
-import { NodeHandler } from "../common/Node/NodeHandler";
 import { NumberHandler } from "./handlers/Number/NumberHandler";
+import { StringHandler } from "./handlers/String/StringHandler";
 
+import { NodeToken } from "./handlers/Node/NodeToken";
+
+import { Plus } from "./handlers/Operators/tokens/Plus";
 import { Minus } from "./handlers/Operators/tokens/Minus";
 import { Multi } from "./handlers/Operators/tokens/Multi";
 import { Div } from "./handlers/Operators/tokens/Div";
@@ -21,34 +29,41 @@ import { Or } from "./handlers/Operators/tokens/Or";
 import { And } from "./handlers/Operators/tokens/And";
 import { Mod } from "./handlers/Operators/tokens/Mod";
 
-import { Expression } from "./Expression";
-import { XMLDocument, Tag, TNode } from "../XMLDocument";
-import { XQueryExecutor } from "./XQueryExecutor";
-import { NodeToken } from "./handlers/Node/NodeToken";
+import { Position } from "./handlers/Functions/tokens/Position";
+import { Count } from "./handlers/Functions/tokens/Count";
+import { Contains } from "./handlers/Functions/tokens/Contains";
+import { Name } from "./handlers/Functions/tokens/Name";
 
 const parser = new XQueryParser();
 
-parser.addHandler(new FunctionHandler());
-parser.addHandler(new BracketsHandler());
+parser.addHandler(
+  new FunctionHandler()
+    .addToken(Position)
+    .addToken(Contains)
+    .addToken(Count)
+    .addToken(Name)
+);
 parser.addHandler(
   new OperatorsHandler()
-    .addOperator(Plus)
-    .addOperator(Minus)
-    .addOperator(Multi)
-    .addOperator(Div)
-    .addOperator(Equal)
-    .addOperator(NotEqual)
-    .addOperator(StrictLessThen)
-    .addOperator(LessThen)
-    .addOperator(StrictGreaterThan)
-    .addOperator(GreaterThan)
-    .addOperator(Or)
-    .addOperator(And)
-    .addOperator(Mod)
+    .addToken(Plus)
+    .addToken(Minus)
+    .addToken(Multi)
+    .addToken(Div)
+    .addToken(Equal)
+    .addToken(NotEqual)
+    .addToken(StrictLessThen)
+    .addToken(LessThen)
+    .addToken(StrictGreaterThan)
+    .addToken(GreaterThan)
+    .addToken(Or)
+    .addToken(And)
+    .addToken(Mod)
 );
 parser.addHandler(new AttributeHandler());
 parser.addHandler(new NumberHandler());
+parser.addHandler(new StringHandler());
 parser.addHandler(new NodeHandler(NodeToken));
+parser.addHandler(new BracketsHandler());
 
 const executor = new XQueryExecutor();
 
@@ -83,23 +98,29 @@ export class XQuery {
     return this.tree;
   }
 
-  execute(source: TNode[]): XMLDocument {
+  execute(source: TNode[] | XMLDocument): XMLDocument {
     if (!this.root) {
       throw new Error("Need to call parse");
     }
 
-    const tags: Tag[] = source.filter(
-      (item): item is Tag => item instanceof Tag
-    );
+    const list = Array.isArray(source)
+      ? source
+      : source.getRoot().getChildren();
+
+    const tags: Tag[] = list.filter((item): item is Tag => item instanceof Tag);
 
     return this.executor.execute(tags, this.tree);
   }
 
-  calc(tag?: Tag) {
+  calc(tag?: Tag | XMLDocument, ...args) {
     if (!this.root) {
       throw new Error("Need to call parse");
     }
 
-    return this.executor.calc(this.tree, tag);
+    if (tag instanceof XMLDocument) {
+      return this.executor.calc(this.tree, tag.getRoot(), ...args);
+    }
+
+    return this.executor.calc(this.tree, tag, ...args);
   }
 }
