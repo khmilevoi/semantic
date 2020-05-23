@@ -1,5 +1,5 @@
-import { Operator } from "./Operator";
-import { orders } from "../../constants/orders";
+import { Operator } from "../Operator";
+import { orders } from "../../../constants/orders";
 
 export class StrictGreaterThan extends Operator {
   static regexp = /^>/;

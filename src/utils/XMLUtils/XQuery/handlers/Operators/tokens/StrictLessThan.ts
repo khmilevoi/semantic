@@ -1,7 +1,7 @@
-import { Operator } from "./Operator";
+import { Operator } from "../Operator";
 
-import { types } from "../../constants/types";
-import { orders } from "../../constants/orders";
+import { types } from "../../../constants/types";
+import { orders } from "../../../constants/orders";
 
 export class StrictLessThen extends Operator {
   static regexp = /^</;

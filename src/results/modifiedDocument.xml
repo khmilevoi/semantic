@@ -19,7 +19,7 @@
 					A
 				</name>
 				<content>
-					QB|mzxczl^Y`VVF`I`_nKFvQCbboCPj~~Kel^zF~UejRUxHg^d
+					Kx\hPmuzmnioM`v}ZnCvqGhqGd|_^pYHhwIJKCD\{]h]Bd[`Y|t
 				</content>
 			</comment>
 			<comment index="1">
@@ -27,7 +27,7 @@
 					B
 				</name>
 				<content>
-					\|QXzYzF`[BVkUGlJYsc]S}rtEQdwp]Fan^kmlCBmc~QvxDYn
+					ZuC]C]`kuc|GShhkobWovuBZkbEdCSoMNao_^f__IztERHmr
 				</content>
 			</comment>
 			<comment index="2">
@@ -35,7 +35,7 @@
 					C
 				</name>
 				<content>
-					tTiT[xgMXzpURNAEcjMFgwvJlzRZUvqLu~E[FQNmXoSXyFu^Fy_
+					ejEUcPD[VG]wLbOcIAl}kQQ{Tm{QAVTDsPdwJ~WgDDxjBPrVI
 				</content>
 			</comment>
 		</comments>
@@ -53,32 +53,7 @@
 		<id>
 			55375
 		</id>
-		<comments amount="3">
-			<comment index="0">
-				<name>
-					A
-				</name>
-				<content>
-					HtRPdv`LYR|iELHwc_OjCz`xi{eUS||Aj\dioJOghgpb
-				</content>
-			</comment>
-			<comment index="1">
-				<name>
-					B
-				</name>
-				<content>
-					zrnDC^lAwElYHfqGr[gGuVEgdMEU|_G|KfLGzARoOKWXqHr
-				</content>
-			</comment>
-			<comment index="2">
-				<name>
-					C
-				</name>
-				<content>
-					nMYMgCa\hSqjDAcsr{tj|HJ}GesIV_nhXuXd_Rph]G}Tnly
-				</content>
-			</comment>
-		</comments>
+		<comments amount="0"/>
 	</product>
 	<product index="3">
 		<name description="В наличии">
@@ -93,13 +68,21 @@
 		<id>
 			54867
 		</id>
-		<comments amount="1">
+		<comments amount="2">
 			<comment index="0">
 				<name>
 					A
 				</name>
 				<content>
-					HEejuPEAH^Rzcc|oVWQu\BfXV_f[JWbfzmOGaNornvGLu[q
+					cKdeZBe^zcIkxpV[QFkWeuBgAILGSLB[`RJoNkOD\kuJ~\l
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					]\efbWoD^IveSrlxSralUjLfxePooeZIaC`rBXmLZ[MLdpT
 				</content>
 			</comment>
 		</comments>
@@ -123,44 +106,12 @@
 					A
 				</name>
 				<content>
-					`FBKkg_wAqin``bgzCqQQOdU}eSzAhe[u_^xzXkdAqJCEPk
+					mpkRJhtWroIJv~quWyIQfU}pD[e_di_UOghRS`]UVROlHUCO
 				</content>
 			</comment>
 		</comments>
 	</product>
 	<product index="5">
-		<name description="доставка в Украину 7 дней">
-			Name: Asic Bitmain Antminer T17+ 58 TH/s SHA-256 + БП (доставка в Украину 7 дней)
-		</name>
-		<price>
-			33875
-		</price>
-		<priceCurrency>
-			UAH
-		</priceCurrency>
-		<id>
-			55659
-		</id>
-		<comments amount="2">
-			<comment index="0">
-				<name>
-					A
-				</name>
-				<content>
-					{JXhOSumLovSZf|NUZSjLVnhub}QeLzQAGu[rhncSAsPjZ^X
-				</content>
-			</comment>
-			<comment index="1">
-				<name>
-					B
-				</name>
-				<content>
-					uh[]tKXupdA_iIF|_vPrNOPo[GK[KFDpEJwzAr[EgEkBacf
-				</content>
-			</comment>
-		</comments>
-	</product>
-	<product index="6">
 		<name description="доставка в Украину 7 дней">
 			Name: Asic Bitmain Antminer Z11 135 kH/s Equihash + БП (доставка в Украину 7 дней)
 		</name>
@@ -173,13 +124,13 @@
 		<id>
 			55471
 		</id>
-		<comments amount="4">
+		<comments amount="2">
 			<comment index="0">
 				<name>
 					A
 				</name>
 				<content>
-					C\uzpmLmhlyFdLzScICG{koNLOmgVZl`WROZegLuSMeKuedost
+					uOh{L\W^h`JjEHTapi\\Yhbsjew{u|apFbfx[faGqTUnN{XT
 				</content>
 			</comment>
 			<comment index="1">
@@ -187,7 +138,39 @@
 					B
 				</name>
 				<content>
-					dCri]Ihr[`S}s~qPfIAHGF^Birew~^uH{ROyFHEwo[viAyTxme
+					hdKcW[ppdzIMQzFEicbbAQdR`oRTDdiig{\c]GgebKkFMYMD
+				</content>
+			</comment>
+		</comments>
+	</product>
+	<product index="6">
+		<name description="доставка в Украину 7 дней">
+			Name: Asic Bitmain Antminer T17+ 58 TH/s SHA-256 + БП (доставка в Украину 7 дней)
+		</name>
+		<price>
+			33875
+		</price>
+		<priceCurrency>
+			UAH
+		</priceCurrency>
+		<id>
+			55659
+		</id>
+		<comments amount="4">
+			<comment index="0">
+				<name>
+					A
+				</name>
+				<content>
+					idtGwELfBh[P`fxDvW\mgpXFcNjpi^eHiwhl_KiObD{|LKk\]O^v
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					hNKMzUrepVkZFRYfIcAxrydtw|Ys]I~Tfaj_Vgjqwbv_hPLSs{
 				</content>
 			</comment>
 			<comment index="2">
@@ -195,7 +178,7 @@
 					C
 				</name>
 				<content>
-					phtu^bz]NCHttlbfqjSHJd{MoiF_qXCMHs|kXGG~VGkV`YyMkR
+					jqVFEbNlwdb`{|am[~QNTYuc\AMKSojPqm[agTZT[]utWxMq\
 				</content>
 			</comment>
 			<comment index="3">
@@ -203,7 +186,7 @@
 					D
 				</name>
 				<content>
-					_ZR]EyAdN]ZQZRvoLVxjvhcfyGhPuzDQUW{HeunvJs`}J_FLid
+					kcYjxY}]VX`s|GFeTeB~zELQJBwnVYZjmNJLeNi|MyxSXHyQWi`
 				</content>
 			</comment>
 		</comments>
@@ -221,7 +204,32 @@
 		<id>
 			55681
 		</id>
-		<comments amount="0"/>
+		<comments amount="3">
+			<comment index="0">
+				<name>
+					A
+				</name>
+				<content>
+					vsecBFOvy~DiQL[ewPMBb^CvLR|xF\s]lNZhxX]r^SETReD|p
+				</content>
+			</comment>
+			<comment index="1">
+				<name>
+					B
+				</name>
+				<content>
+					Eswe[lstqNYIB|kUvATTxKTdKMUkWFwYft`zrCQX^E]i[Jehp
+				</content>
+			</comment>
+			<comment index="2">
+				<name>
+					C
+				</name>
+				<content>
+					xiTwAoixhpqXj[]uIEjNrxOvZA{wJVOlhHXwLi^waJJ^oJH}S
+				</content>
+			</comment>
+		</comments>
 	</product>
 	<product index="8">
 		<name description="10-20 мая, с завода">
@@ -236,29 +244,13 @@
 		<id>
 			55669
 		</id>
-		<comments amount="3">
+		<comments amount="1">
 			<comment index="0">
 				<name>
 					A
 				</name>
 				<content>
-					bWG}UNq^pM|\DXkTR}jPHiTlQpB_hRwG`DYxkh[JQwNUCbbm
-				</content>
-			</comment>
-			<comment index="1">
-				<name>
-					B
-				</name>
-				<content>
-					kRWRNWqBiPoQvqyzat}zok]YcHCWn[op`hL`JPEhcRqwLtOGZ
-				</content>
-			</comment>
-			<comment index="2">
-				<name>
-					C
-				</name>
-				<content>
-					vgE}HRHFXUNjC`M~lqgGGr~_gxHJU]{gxGklLjCgeNoTt
+					SbY^AneOPgx|{VdETiihIR|TGrSwVjIgG[{RzBhNTBrR^fqjm
 				</content>
 			</comment>
 		</comments>
@@ -276,32 +268,7 @@
 		<id>
 			55682
 		</id>
-		<comments amount="3">
-			<comment index="0">
-				<name>
-					A
-				</name>
-				<content>
-					Hs^PUlr[qZbAbQKipf`ZQLWPvkMde[oab^NFZ~{jOgEtf
-				</content>
-			</comment>
-			<comment index="1">
-				<name>
-					B
-				</name>
-				<content>
-					[lIWcHBsL]svqNPhqyV|apooDdxKzmG~ruYr^leYYcSg|tggu
-				</content>
-			</comment>
-			<comment index="2">
-				<name>
-					C
-				</name>
-				<content>
-					QJWHFDGlMlaY]^{`eDJgY\Euv]uAp`vCgWB_yMPhkL|GB[J]
-				</content>
-			</comment>
-		</comments>
+		<comments amount="0"/>
 	</product>
 	<product index="10">
 		<name description="10-20 мая, с завода">
@@ -316,7 +283,16 @@
 		<id>
 			55670
 		</id>
-		<comments amount="0"/>
+		<comments amount="1">
+			<comment index="0">
+				<name>
+					A
+				</name>
+				<content>
+					YPi~lch[U_zxlpZ^JlBs]HCEbxmKFQsE}DKRgbVBzKVzxGerMq
+				</content>
+			</comment>
+		</comments>
 	</product>
 	<product index="11">
 		<name description="1-31 июля с завода">
@@ -337,7 +313,7 @@
 					A
 				</name>
 				<content>
-					~{fvEPU|MuTOxFDGlg^xfuf\zewoRWTXpoxqrggEsIJBvjO
+					ly~BrJT~iGGrXypObkRtUVfy|gHejPhYqE_WM_yd\t]cgbNoE
 				</content>
 			</comment>
 			<comment index="1">
@@ -345,7 +321,7 @@
 					B
 				</name>
 				<content>
-					PbHwwp]ZSMbMD_y_Amt\QaxOzPKwDYM|^eJKGC]sFlkjBjg
+					iHaP\Q_uC[uJQ]_Qn^r[^fKyH`bb{^PxQqIjCpEwkT[~EtVDqE`
 				</content>
 			</comment>
 			<comment index="2">
@@ -353,7 +329,7 @@
 					C
 				</name>
 				<content>
-					S\WOnfoXJDfBEfHGLubvWQDpFQWwwFodldEvnWdK|XmhijyGPo
+					bCq]tIr|VZ\VuXlHp`FGEBsxbZ`PkSWGVCyQtWImfrJKY[boHt
 				</content>
 			</comment>
 		</comments>

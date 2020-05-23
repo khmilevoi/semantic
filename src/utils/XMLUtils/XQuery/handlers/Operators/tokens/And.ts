@@ -1,6 +1,6 @@
-import { Operator } from "./Operator";
+import { Operator } from "../Operator";
 
-import { types } from "../../constants/types";
+import { types } from "../../../constants/types";
 
 export class And extends Operator {
   static regexp = types.OPERATORS.AND;

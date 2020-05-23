@@ -1,6 +1,6 @@
-import { TNode, Tag } from "utils/XMLUtils/XMLDocument";
-import { Expression } from "../../Expression";
+import { Tag } from "utils/XMLUtils/XMLDocument";
 import { Token } from "utils/XMLUtils/common/Token";
+import { Expression } from "../../Expression";
 
 export class Operator {
   static regexp: RegExp;
