@@ -1,6 +1,6 @@
 import { Token } from "utils/XMLUtils/common/Token";
 import { Tag, Text } from "utils/XMLUtils/XMLDocument";
-import { XQuery } from "../../XQuery";
+import { XQuery } from "../../XQuery/XQuery";
 import { XPath } from "utils/XMLUtils/XPath";
 
 export type TParams = {
@@ -34,13 +34,38 @@ export class Function extends Token {
   constructor(token: string) {
     super(Function.type, token);
 
-    const [name, params] = token.slice(0, -1).split("(");
-
-    this.name = name;
-    this.params = params
-      .split(",")
+    const [name = "", params = ""] = token
+      .slice(0, -1)
+      .split(/(^\w*)\(/)
       .map((item) => item.trim())
       .filter((item) => !!item);
+
+    this.name = name;
+    this.params = this.splitParams(params);
+  }
+
+  splitParams(params: string) {
+    const result = [];
+    let item = "";
+    let depth = 0;
+
+    function push() {
+      if (item) result.push(item);
+      item = "";
+    }
+
+    for (const c of params) {
+      if (!depth && c === ",") push();
+      else {
+        item += c;
+        if (c === "(") depth++;
+        if (c === ")") depth--;
+      }
+    }
+
+    push();
+
+    return result;
   }
 
   getName() {
@@ -63,7 +88,7 @@ export class Function extends Token {
     return new XQuery(item);
   }
 
-  execute(tag: Tag, { args = [] }) {
+  execute(tag: Tag, { args = [] } = {}) {
     const params = this.params
       .map((item) => {
         const query = this.createQuery(item);

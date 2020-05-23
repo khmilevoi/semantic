@@ -4,9 +4,21 @@ import { Tag, TNode } from "utils/XMLUtils/XMLDocument";
 export class PrecedingSibling extends Axe {
   static regexp = /^preceding-sibling/;
 
-  calc(tag: Tag, prev: TNode[]) {
-    const current = prev.findIndex((item) => item.getId() === tag.getId());
+  calc(tag: Tag, prev: Tag) {
+    const current = prev
+      .getChildren()
+      .findIndex((item) => item.getId() === tag.getId());
 
-    return prev.filter((_, index) => index < current);
+    return prev
+      .getChildren()
+      .filter((_, index) => index < current)
+      .filter((item): item is Tag => item instanceof Tag)
+      .filter((item) => {
+        if (this.getNode() === "*") {
+          return true;
+        }
+
+        return item.getName() === this.getNode();
+      });
   }
 }

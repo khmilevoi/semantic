@@ -6,6 +6,6 @@ export class Contains extends Function {
   calc({ params }: TParams) {
     const [item = "", searchString = ""]: string[] = params;
 
-    throw item.includes(searchString);
+    return item.includes(searchString);
   }
 }

@@ -6,7 +6,7 @@ import { Expression } from "./Expression";
 import { XMLDocument, Tag, TNode } from "../XMLDocument";
 import { XQueryExecutor } from "./XQueryExecutor";
 
-import { FunctionHandler } from "./handlers/Functions/FunctionHandler";
+import { FunctionHandler } from "../common/Functions/FunctionHandler";
 import { BracketsHandler } from "./handlers/Brackets/BracketsHandler";
 import { OperatorsHandler } from "./handlers/Operators/OperatorsHandler";
 import { AttributeHandler } from "./handlers/Attribute/AttributeHandler";
@@ -29,10 +29,10 @@ import { Or } from "./handlers/Operators/tokens/Or";
 import { And } from "./handlers/Operators/tokens/And";
 import { Mod } from "./handlers/Operators/tokens/Mod";
 
-import { Position } from "./handlers/Functions/tokens/Position";
-import { Count } from "./handlers/Functions/tokens/Count";
-import { Contains } from "./handlers/Functions/tokens/Contains";
-import { Name } from "./handlers/Functions/tokens/Name";
+import { Position } from "../common/Functions/tokens/Position";
+import { Count } from "../common/Functions/tokens/Count";
+import { Contains } from "../common/Functions/tokens/Contains";
+import { Name } from "../common/Functions/tokens/Name";
 
 const parser = new XQueryParser();
 

@@ -6,7 +6,7 @@ import { Parser } from "../common/Parser";
 import { Token } from "../common/Token";
 
 import { Operator } from "./handlers/Operators/Operator";
-import { Function } from "./handlers/Functions/Function";
+import { Function } from "../common/Functions/Function";
 
 import { types } from "./constants/types";
 
@@ -106,6 +106,7 @@ export class XQueryParser extends Parser<THandel> {
         }
       } else {
         if (!parsed) {
+          debugger;
           throw new Error(`Undefined token [${token}]`);
         }
       }
@@ -120,7 +121,7 @@ export class XQueryParser extends Parser<THandel> {
 
   static SPLITTER = {
     ...types.OPERATORS,
-    FUNCTION: /\w+\([^\)]*\)(\.[^\)]*\))?/,
+    FUNCTION: /\w+\(.*\)/,
     L_BRACKET: /\(/,
     R_BRACKET: /\)/,
   };

@@ -1,6 +1,7 @@
 import { Handler } from "./Handler";
 
 import { combineRegExp } from "./combineRegExp";
+import { Token } from "./Token";
 
 export abstract class Parser<T> {
   private handlers: Handler<T>[] = [];
@@ -16,7 +17,10 @@ export abstract class Parser<T> {
   static splitString(source: string, save?: boolean) {
     const splitter = combineRegExp(Object.values<RegExp>(this.SPLITTER), save);
 
-    return source.split(splitter);
+    return source
+      .split(splitter)
+      .filter((item) => !!item)
+      .map((item) => item.trim());
   }
 
   static SPLITTER = {};

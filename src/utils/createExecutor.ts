@@ -1,5 +1,5 @@
 type TExecutable = {
-  [name: string]: RegExp;
+  [name: string]: RegExp | CallableFunction;
 };
 
 export type Types = {
@@ -8,9 +8,12 @@ export type Types = {
 
 export const createExecutor = (executable: TExecutable): Types => {
   return Object.entries(executable).reduce((types, [key, value]) => {
-    return {
-      ...types,
-      [key]: (str) => value.test(str),
-    };
+    const result = { ...types };
+
+    if (value instanceof RegExp) {
+      result[key] = (str) => value.test(str);
+    }
+
+    return result;
   }, {});
 };

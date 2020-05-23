@@ -2,16 +2,21 @@ import { XPathParser } from "./XPathParser";
 
 import { Token } from "../common/Token";
 
-import { NodeHandler } from "../common/Node/NodeHandler";
-import { PredicateHandler } from "./handlers/Predicate/PredicateHandler";
-
 import { XMLDocument, Tag } from "../XMLDocument";
 import { XPathExecutor } from "./XPathExecutor";
+
+import { NodeHandler } from "../common/Node/NodeHandler";
+import { PredicateHandler } from "./handlers/Predicate/PredicateHandler";
 import { AxeHandler } from "./handlers/Axes/AxeHandler";
+import { FunctionHandler } from "../common/Functions/FunctionHandler";
+
 import { PrecedingSibling } from "./handlers/Axes/tokens/PrecedingSibling";
+
+import { Node } from "../common/Functions/tokens/Node";
 
 const parser = new XPathParser();
 
+parser.addHandler(new FunctionHandler().addToken(Node));
 parser.addHandler(new AxeHandler().addToken(PrecedingSibling));
 parser.addHandler(new NodeHandler());
 parser.addHandler(new PredicateHandler());

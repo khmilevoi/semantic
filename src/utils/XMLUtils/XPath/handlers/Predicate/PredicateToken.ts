@@ -2,36 +2,41 @@ import { XQuery } from "../../../XQuery";
 
 import { Token } from "../../../common/Token";
 import { Tag } from "utils/XMLUtils/XMLDocument";
+import { XPath } from "../../XPath";
 
 export class PredicateToken extends Token {
   static type = "predicate";
 
   private name: string;
   private predicate: string;
-  private query: XQuery;
+  private nameQuery: XPath;
+  private predicateQuery: XQuery;
 
   constructor(content: string) {
     const [name, predicate] = content.split(PredicateToken.regexps.BRACKET);
-
     super(PredicateToken.type, content);
 
     this.name = name;
     this.predicate = predicate;
 
+    const xPath = new XPath(this.name);
+    this.nameQuery = xPath;
+
     const xQuery = new XQuery(this.predicate);
-    this.query = xQuery;
+    this.predicateQuery = xQuery;
   }
 
   parse(): PredicateToken {
-    this.query.parse();
+    this.predicateQuery.parse();
+    this.nameQuery.parse();
 
     return this;
   }
 
   execute(tag: Tag) {
-    const tags = tag.findAll(this.name, false);
+    const tags = this.nameQuery.execute(tag);
 
-    return this.query.execute(tags).getRoot().getChildren();
+    return this.predicateQuery.execute(tags).getRoot().getChildren();
   }
 
   static regexps = {

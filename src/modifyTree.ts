@@ -1,7 +1,6 @@
 import { Tag, Text, XMLDocument } from "utils/XMLUtils";
 
 export const modifyTree = (document: XMLDocument) => {
-  debugger
   const productContainer = document.find("products");
 
   const names = productContainer.findAll("name");
@@ -56,6 +55,10 @@ export const modifyTree = (document: XMLDocument) => {
 
     tag.addChild(comments);
   });
+
+  const mockTag = new Tag("two_words");
+
+  productContainer.addChild(mockTag);
 
   return document;
 };

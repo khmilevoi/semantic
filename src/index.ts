@@ -57,7 +57,7 @@ const main = async () => {
 
     debugger;
   } catch (error) {
-    console.log(error);
+    console.log("error: ", error);
   }
 };
 

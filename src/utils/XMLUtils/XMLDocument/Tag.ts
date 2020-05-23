@@ -44,25 +44,27 @@ export class Tag extends Node {
     }, null);
   }
 
-  findAll(name, propagation = true): Tag[] {
-    if (this.name === name) {
+  findAll(name?, propagation = true, first = true): Tag[] {
+    if (this.name === name && first) {
       return [this];
     }
 
     return this.children.reduce((tags, tag) => {
+      const result = [...tags];
+
       if (tag instanceof Tag) {
-        if (tag.name === name) {
-          return [...tags, tag];
+        if (tag.name === name || !name) {
+          result.push(tag);
         }
 
         if (!propagation) {
-          return tags;
+          return result;
         }
 
-        return [...tags, ...tag.findAll(name)];
+        result.push(...tag.findAll(name, propagation, false));
       }
 
-      return tags;
+      return result;
     }, []);
   }
 

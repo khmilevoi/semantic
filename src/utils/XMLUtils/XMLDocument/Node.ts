@@ -2,7 +2,7 @@ export class Node {
   private id: symbol;
 
   constructor(id: string) {
-    this.id = Symbol.for(id.slice(0, 20));
+    this.id = Symbol(id.slice(0, 20));
   }
 
   getId() {
@@ -10,7 +10,7 @@ export class Node {
   }
 
   clone() {
-    return new Node(Symbol.keyFor(this.id));
+    return new Node(this.id.toString().slice(7, -1));
   }
 
   getChildren() {
