@@ -18,7 +18,7 @@ export abstract class Parser<T> {
     const splitter = combineRegExp(Object.values<RegExp>(this.SPLITTER), save);
 
     return source
-      .split(splitter)
+      .split(new RegExp(splitter, "g"))
       .filter((item) => !!item)
       .map((item) => item.trim());
   }

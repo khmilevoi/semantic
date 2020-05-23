@@ -11,6 +11,6 @@ export class StrictLessThen extends Operator {
   }
 
   calc(left, right) {
-    return left < right;
+    return Number.parseFloat(left) < Number.parseFloat(right);
   }
 }

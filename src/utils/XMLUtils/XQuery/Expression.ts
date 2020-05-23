@@ -39,6 +39,10 @@ export class Expression {
     return this.result;
   }
 
+  cleanResult() {
+    return (this.result = null);
+  }
+
   getOperator() {
     return this.operator;
   }

@@ -8,8 +8,7 @@ export class StrictGreaterThan extends Operator {
     return orders.STRICT_GREATER_THAN;
   }
 
- 
   calc(left, right) {
-    return left > right;
+    return Number.parseFloat(left) > Number.parseFloat(right);
   }
 }

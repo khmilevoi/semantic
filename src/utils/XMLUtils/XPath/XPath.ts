@@ -13,10 +13,14 @@ import { FunctionHandler } from "../common/Functions/FunctionHandler";
 import { PrecedingSibling } from "./handlers/Axes/tokens/PrecedingSibling";
 
 import { Node } from "../common/Functions/tokens/Node";
+import { Text } from "../common/Functions/tokens/Text";
+import { Concat } from "../common/Functions/tokens/Concat";
 
 const parser = new XPathParser();
 
-parser.addHandler(new FunctionHandler().addToken(Node));
+parser.addHandler(
+  new FunctionHandler().addToken(Node).addToken(Text).addToken(Concat)
+);
 parser.addHandler(new AxeHandler().addToken(PrecedingSibling));
 parser.addHandler(new NodeHandler());
 parser.addHandler(new PredicateHandler());

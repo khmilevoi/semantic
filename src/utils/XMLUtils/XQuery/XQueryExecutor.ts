@@ -6,18 +6,20 @@ import { Expression } from "./Expression";
 
 export class XQueryExecutor extends Executor<Tag[], TTree> {
   sortExpressions(expressions: Expression[]) {
-    return expressions.sort((left, right) => {
-      const leftOrder = left.calcPriority(expressions.length);
-      const rightOrder = right.calcPriority(expressions.length);
+    return expressions
+      .filter((item) => !!item.getOperator())
+      .sort((left, right) => {
+        const leftOrder = left.calcPriority(expressions.length);
+        const rightOrder = right.calcPriority(expressions.length);
 
-      return leftOrder - rightOrder;
-    });
+        return leftOrder - rightOrder;
+      });
   }
 
   calcExpression(expressions: Expression[], tree: TTree, tag?: Tag, ...args) {
-    expressions.forEach((item) =>
-      item.execute(tag, { rewrite: true, args: [...args] })
-    );
+    expressions.forEach((item) => item.cleanResult());
+
+    expressions.forEach((item) => item.execute(tag, { args: [...args] }));
 
     const result = tree.root.execute(tag, { args: [...args] });
 

@@ -4,7 +4,6 @@ export class Node extends Function {
   static regexp = /^node/;
 
   calc({ tag }: TParams) {
-    const res = tag.findAll();
-    return res;
+    return tag.findAll();
   }
 }

@@ -69,7 +69,12 @@ export class XQueryParser extends Parser<THandel> {
       const parsed = this.parseToken(token);
 
       if (parsed instanceof Operator) {
-        const deep = brackets.length;
+        const deep = stack.length;
+
+        if (!currentExpression) {
+          debugger;
+        }
+
         currentExpression.setOperator(parsed, deep);
       } else if (parsed instanceof Token) {
         const [child, isNext] = this.createChild(currentExpression, parsed);
@@ -96,7 +101,8 @@ export class XQueryParser extends Parser<THandel> {
 
       if (
         XQueryParser.type.R_BRACKET(token) &&
-        !XQueryParser.type.FUNCTION(token)
+        !/\w+\(.*\)/.test(token)
+        // !XQueryParser.type.FUNCTION(token)
       ) {
         const last = brackets.pop();
         const index = stack.indexOf(last);
@@ -121,7 +127,7 @@ export class XQueryParser extends Parser<THandel> {
 
   static SPLITTER = {
     ...types.OPERATORS,
-    FUNCTION: /\w+\(.*\)/,
+    FUNCTION: /\w+\((?:[^)(]+|\((?:[^)(]+|\([^)(]*\))*\))*\)/,
     L_BRACKET: /\(/,
     R_BRACKET: /\)/,
   };
