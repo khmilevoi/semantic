@@ -66,6 +66,10 @@ export class XQueryParser extends Parser<THandel> {
     splitted.forEach((token) => {
       const currentExpression = stack[stack.length - 1];
 
+      if (!currentExpression) {
+        throw new Error("Something went wrong");
+      }
+
       const parsed = this.parseToken(token);
 
       if (parsed instanceof Operator) {

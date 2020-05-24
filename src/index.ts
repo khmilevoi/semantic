@@ -55,7 +55,7 @@ const main = async () => {
         );
       }
 
-      console.log(result);
+      console.log(`result-${index}: ${result}`);
     });
 
     debugger;
