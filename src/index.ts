@@ -47,7 +47,7 @@ const main = async () => {
 
     const queryResults = queries(modifiedXmlDocument);
 
-    queryResults.forEach(async (result, index) => {
+    Object.entries(queryResults).forEach(async ([index, result]) => {
       if (result instanceof XMLDocument) {
         return await saveFile(
           `src/results/xpath_${index}.xml`,
