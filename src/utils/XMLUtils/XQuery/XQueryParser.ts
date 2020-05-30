@@ -27,10 +27,6 @@ export class XQueryParser extends Parser<THandel> {
     }, null);
   }
 
-  static addExpression(expressions: Expression[], expression: Expression) {
-    return expressions.push(expression);
-  }
-
   createChild(
     current: Expression,
     parsed: Expression | Token
@@ -105,8 +101,7 @@ export class XQueryParser extends Parser<THandel> {
 
       if (
         XQueryParser.type.R_BRACKET(token) &&
-        !/\w+\(.*\)/.test(token)
-        // !XQueryParser.type.FUNCTION(token)
+        !XQueryParser.type.FUNCTION(token)
       ) {
         const last = brackets.pop();
         const index = stack.indexOf(last);
