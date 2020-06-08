@@ -1,4 +1,4 @@
-type Item = { [name: string]: string };
+type Item = { [name: string]: string | number };
 
 const createChildren = (item: Item) =>
   Object.entries(item).reduce(

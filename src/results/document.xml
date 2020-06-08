@@ -1,135 +1,499 @@
 <?xml version="1.0"?>
 <products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<product index="0" id="55608">
+	<product index="0" id="5000">
 		<name>
-			Asic Bitmain Antminer S17+ 70 TH/s SHA-256 + БП (В наличии)
+			Elimination Extra Long
 		</name>
+		<brand>
+			DER MATERIALSPEZIALIST
+		</brand>
+		<description>
+			<p>
+				для разрушительной игры, с отличными атакующими возможностями
+			</p>
+		</description>
 		<price>
-			67750
+			996.60 грн
 		</price>
-		<priceCurrency>
-			UAH
-		</priceCurrency>
 	</product>
-	<product index="1" id="55620">
+	<product index="1" id="5001">
 		<name>
-			Asic Bitmain S9z 20,5 TH/s SHA-256 + БП (В наличии)
+			Rollerbox - футляр на 6 мячей
 		</name>
+		<brand>
+			DONIC
+		</brand>
+		<description>
+			<p>
+				для хранения 6 мячей, а также применяется при наклеивании накладок.
+			</p>
+		</description>
 		<price>
-			5420
+			120.80
 		</price>
-		<priceCurrency>
-			UAH
-		</priceCurrency>
 	</product>
-	<product index="2" id="55375">
+	<product index="2" id="5002">
 		<name>
-			Asic Bitmain Antminer DR3 7.8 TH/s Blake(14r) + БП (В наличии)
+			брелок-футляр Ball Holder Keychain для двух мячей
 		</name>
+		<brand>
+			YINHE (Milkyway)
+		</brand>
+		<description>
+			<p>
+				пластиковый брелок-футляр для двух теннисных мячей
+			</p>
+		</description>
 		<price>
-			2168
+			47.43
 		</price>
-		<priceCurrency>
-			UAH
-		</priceCurrency>
 	</product>
-	<product index="3" id="54867">
+	<product index="3" id="5003">
 		<name>
-			Asic Bitmain Antminer B3 1000 H/s Tensority + БП (В наличии)
+			мячи 1* ЦЕЛЛУЛОИД - пачка 10 мячей
 		</name>
+		<brand>
+			DHS
+		</brand>
+		<description>
+			<p>
+				хорошие тренировочные мячи 1* ЦЕЛЛУЛОИДНЫЕ
+			</p>
+		</description>
 		<price>
-			1897
+			135.50
 		</price>
-		<priceCurrency>
-			UAH
-		</priceCurrency>
 	</product>
-	<product index="4" id="55545">
+	<product index="4" id="5004">
 		<name>
-			Asic Innosilicon T2TZ 30 Th/s SHA-256 + БП (В наличии)
+			мячи 3*** ITTF ЦЕЛЛУЛОИД: пачка 3 мяча
 		</name>
+		<brand>
+			DOUBLE FISH
+		</brand>
+		<description>
+			<p>
+				ЦЕЛЛУЛОИДНЫЕ МЯЧИ 3*** ITTF, официальный мяч Олимпийских Игр 2008 в Пекине
+			</p>
+		</description>
 		<price>
-			13550
+			86.72
 		</price>
-		<priceCurrency>
-			UAH
-		</priceCurrency>
 	</product>
-	<product index="5" id="55471">
+	<product index="5" id="5005">
 		<name>
-			Asic Bitmain Antminer Z11 135 kH/s Equihash + БП (доставка в Украину 7 дней)
+			мячи 40+ 1* ABS+ with seam, зеленые: 1 мяч
 		</name>
+		<brand>
+			YINHE (Milkyway)
+		</brand>
+		<description>
+			<p>
+				лучшие из самых дешевых тренировочных&nbsp;мячей 40+ из пластика ABS+, поштучно
+			</p>
+		</description>
 		<price>
-			51897
+			10.84
 		</price>
-		<priceCurrency>
-			UAH
-		</priceCurrency>
 	</product>
-	<product index="6" id="55659">
+	<product index="6" id="5006">
 		<name>
-			Asic Bitmain Antminer T17+ 58 TH/s SHA-256 + БП (доставка в Украину 7 дней)
+			мячи 40+ 1* ABS+ with seam, зеленые: коробка 100 мячей
 		</name>
+		<brand>
+			YINHE (Milkyway)
+		</brand>
+		<description>
+			<p>
+				лучшие из самых дешевых тренировочных&nbsp;мячей&nbsp;40+ из пластика ABS+, коробка 100 мячей
+			</p>
+		</description>
 		<price>
-			33875
+			867.20
 		</price>
-		<priceCurrency>
-			UAH
-		</priceCurrency>
 	</product>
-	<product index="7" id="55681">
+	<product index="7" id="5007">
 		<name>
-			Asic Bitmain Antminer S19 PRO 110 TH/s SHA-256 + БП (15-30 июня, с завода)
+			мячи 40+ 1* seamless синие: 1 мяч
 		</name>
+		<brand>
+			YINHE (Milkyway)
+		</brand>
+		<description>
+			<p>
+				хорошие и недорогие тренировочные мячи 40+, поштучно
+			</p>
+		</description>
 		<price>
-			97560
+			14.91
 		</price>
-		<priceCurrency>
-			UAH
-		</priceCurrency>
 	</product>
-	<product index="8" id="55669">
+	<product index="8" id="5008">
 		<name>
-			Asic Bitmain Antminer S19 PRO 110 TH/s SHA-256 + БП (10-20 мая, с завода)
+			мячи 40+ 1* seamless синие: коробка 100 мячей
 		</name>
+		<brand>
+			YINHE (Milkyway)
+		</brand>
+		<description>
+			<p>
+				хорошие и недорогие тренировочные мячи 40+ без шва, коробка 100 мячей
+			</p>
+		</description>
 		<price>
-			116530
+			1,327.90
 		</price>
-		<priceCurrency>
-			UAH
-		</priceCurrency>
 	</product>
-	<product index="9" id="55682">
+	<product index="9" id="5009">
 		<name>
-			Asic Bitmain Antminer S19 PRO 110 TH/s SHA-256 + БП (1-31 июля с завода)
+			мячи 40+ 1* with seam красные: 1 мяч
 		</name>
+		<brand>
+			YINHE (Milkyway)
+		</brand>
+		<description>
+			<p>
+				хорошие и недорогие тренировочные мячи 40+, поштучно
+			</p>
+		</description>
 		<price>
-			89430
+			12.47
 		</price>
-		<priceCurrency>
-			UAH
-		</priceCurrency>
 	</product>
-	<product index="10" id="55670">
+	<product index="10" id="5010">
 		<name>
-			Asic Bitmain Antminer S19 90 TH/s SHA-256 + БП (10-20 мая, с завода)
+			мячи 40+ 2** Superior Training: 1 мяч
 		</name>
+		<brand>
+			RED + BLACK
+		</brand>
+		<description>
+			<p>
+				тренировочные мячи выдающегося качества
+			</p>
+		</description>
 		<price>
-			89430
+			25.67
 		</price>
-		<priceCurrency>
-			UAH
-		</priceCurrency>
 	</product>
-	<product index="11" id="55683">
+	<product index="11" id="5011">
 		<name>
-			Asic Bitmain Antminer S19 90 TH/s SHA-256 + БП (1-31 июля с завода)
+			мячи 40+ 2** Superior Training: пачка 6 мячей
 		</name>
+		<brand>
+			RED + BLACK
+		</brand>
+		<description>
+			<p>
+				тренировочные мячи выдающегося качества
+			</p>
+		</description>
 		<price>
-			71951
+			196.30
 		</price>
-		<priceCurrency>
-			UAH
-		</priceCurrency>
+	</product>
+	<product index="12" id="5012">
+		<name>
+			мячи 40+ 2** Superior Training: пачка 72 мяча
+		</name>
+		<brand>
+			RED + BLACK
+		</brand>
+		<description>
+			<p>
+				тренировочные мячи выдающегося качества
+			</p>
+		</description>
+		<price>
+			1,963.00
+		</price>
+	</product>
+	<product index="13" id="5013">
+		<name>
+			мячи 40+ 3*** ITTF  SL: пачка 3 мяча
+		</name>
+		<brand>
+			TIBHAR
+		</brand>
+		<description>
+			<p>
+				высококачественные бесшовные мячи
+			</p>
+		</description>
+		<price>
+			151.00
+		</price>
+	</product>
+	<product index="14" id="5014">
+		<name>
+			мячи 40+ 3*** ITTF A40+: 1 мяч
+		</name>
+		<brand>
+			BUTTERFLY
+		</brand>
+		<description>
+			<p>
+				пластиковые мячи высокого качества, поштучно
+			</p>
+		</description>
+		<price>
+			73.17
+		</price>
+	</product>
+	<product index="15" id="5015">
+		<name>
+			мячи 40+ 3*** ITTF A40+: пачка 6 мячей
+		</name>
+		<brand>
+			BUTTERFLY
+		</brand>
+		<description>
+			<p>
+				пластиковые мячи высокого качества
+			</p>
+		</description>
+		<price>
+			433.60
+		</price>
+	</product>
+	<product index="16" id="5016">
+		<name>
+			мячи 40+ 3*** ITTF HQ Competition: 1 мяч
+		</name>
+		<brand>
+			RED + BLACK
+		</brand>
+		<description>
+			<p>
+				мячи наивысшего качества, с очень приятным чувством и долговечные
+			</p>
+		</description>
+		<price>
+			55.57
+		</price>
+	</product>
+	<product index="17" id="5017">
+		<name>
+			мячи 40+ 3*** ITTF HQ Competition: пачка 6 мячей
+		</name>
+		<brand>
+			RED + BLACK
+		</brand>
+		<description>
+			<p>
+				мячи&nbsp;наивысшего качества, с очень приятным чувством и долговечные
+			</p>
+		</description>
+		<price>
+			332.20
+		</price>
+	</product>
+	<product index="18" id="5018">
+		<name>
+			мячи 40+ 3*** ITTF HQ Competition: пачка 72 мяча
+		</name>
+		<brand>
+			RED + BLACK
+		</brand>
+		<description>
+			<p>
+				мячи наивысшего качества, с очень приятным чувством и долговечные
+			</p>
+		</description>
+		<price>
+			3,624.00
+		</price>
+	</product>
+	<product index="19" id="5019">
+		<name>
+			мячи 40+ 3*** ITTF Premium Competition: пачка 4 мяча
+		</name>
+		<brand>
+			RED + BLACK
+		</brand>
+		<description>
+			<p>
+				мячи для соревнований, наивысшего качества, с очень приятным чувством и высокой долговечностью
+			</p>
+		</description>
+		<price>
+			332.20
+		</price>
+	</product>
+	<product index="20" id="5020">
+		<name>
+			мячи 40+ 3*** ITTF: пачка 6 мячей - 10 пачек (синяя пачка)
+		</name>
+		<brand>
+			YINHE (Milkyway)
+		</brand>
+		<description>
+			<p>
+				отличные мячи 40+ для соревнований, 60 мячей
+			</p>
+		</description>
+		<price>
+			1,707.30
+		</price>
+	</product>
+	<product index="21" id="5021">
+		<name>
+			мячи 40+ 3*** ITTF: пачка 6 мячей - 20 пачек (синяя пачка)
+		</name>
+		<brand>
+			YINHE (Milkyway)
+		</brand>
+		<description>
+			<p>
+				отличные мячи 40+ для соревнований, 120 мячей
+			</p>
+		</description>
+		<price>
+			3,116.50
+		</price>
+	</product>
+	<product index="22" id="5022">
+		<name>
+			мячи 40+ 3*** ITTF: пачка 6 мячей (синяя пачка)
+		</name>
+		<brand>
+			YINHE (Milkyway)
+		</brand>
+		<description>
+			<p>
+				отличные мячи 40+ для соревнований
+			</p>
+		</description>
+		<price>
+			196.48
+		</price>
+	</product>
+	<product index="23" id="5023">
+		<name>
+			мячи D40+ 1*: пачка 10 мячей
+		</name>
+		<brand>
+			DHS
+		</brand>
+		<description>
+			<p>
+				хорошие тренировочные мячи 40+
+			</p>
+		</description>
+		<price>
+			135.50
+		</price>
+	</product>
+	<product index="24" id="5024">
+		<name>
+			мячи D40+ 1*: пачка 10 мячей - 12 пачек
+		</name>
+		<brand>
+			DHS
+		</brand>
+		<description>
+			<p>
+				хорошие тренировочные мячи 40+, 120 мячей
+			</p>
+		</description>
+		<price>
+			1,327.90
+		</price>
+	</product>
+	<product index="25" id="5025">
+		<name>
+			мячи D40+ 1*: пачка 10 мячей - 6 пачек
+		</name>
+		<brand>
+			DHS
+		</brand>
+		<description>
+			<p>
+				хорошие тренировочные мячи 40+,&nbsp;60 мячей
+			</p>
+		</description>
+		<price>
+			731.70
+		</price>
+	</product>
+	<product index="26" id="5026">
+		<name>
+			мячи D40+ 3*** ITTF Busan 2020 WTTC: пачка 6 мячей
+		</name>
+		<brand>
+			DHS
+		</brand>
+		<description>
+			<p>
+				официальный мяч чемпионата мира Busan 2020, лимитированная серия
+			</p>
+		</description>
+		<price>
+			406.50
+		</price>
+	</product>
+	<product index="27" id="5027">
+		<name>
+			мячи D40+ 3*** ITTF World Tour: пачка 6 мячей
+		</name>
+		<brand>
+			DHS
+		</brand>
+		<description>
+			<p>
+				мячи&nbsp;ITTF World Tour - более качественная и дорогая версия D40+
+			</p>
+		</description>
+		<price>
+			298.10
+		</price>
+	</product>
+	<product index="28" id="5028">
+		<name>
+			мячи D40+ 3*** ITTF: пачка 10 мячей
+		</name>
+		<brand>
+			DHS
+		</brand>
+		<description>
+			<p>
+				пластиковые мячи для турниров, технология со швом
+			</p>
+		</description>
+		<price>
+			203.25
+		</price>
+	</product>
+	<product index="29" id="5029">
+		<name>
+			мячи G40+ 3*** ITTF: 6 мячей в тубусе-роллере
+		</name>
+		<brand>
+			XUSHAOFA
+		</brand>
+		<description>
+			<p>
+				высококачественные мячи 3*** ITTF из бесшовного пластика
+			</p>
+		</description>
+		<price>
+			271.00
+		</price>
+	</product>
+	<product index="30" id="5030">
+		<name>
+			мячи H40+ 3*** ITTF: пачка 6 мячей - 10 пачек (пурпурная пачка)
+		</name>
+		<brand>
+			YINHE (Milkyway)
+		</brand>
+		<description>
+			<p>
+				мячи для соревнований одобренные ITTF, сделаны из пластика ABS+ по технологии со швом, 60 мячей
+			</p>
+		</description>
+		<price>
+			1,036.58
+		</price>
 	</product>
 </products>

@@ -1,21 +1,25 @@
-import { Tag, Text, XMLDocument } from "utils/XMLUtils";
+import { Tag, Text, XMLDocument } from "./utils/XMLUtils";
 
 export const modifyTree = (document: XMLDocument) => {
   const productContainer = document.find("products");
 
+  const products = document.findAll("product");
+
   const names = productContainer.findAll("name");
 
-  names.forEach((tag) => {
+  names.forEach((tag, index) => {
     const [name] = tag.getChildren();
 
     if (name instanceof Text) {
-      tag.addProp("description", name.getText().replace(/(.*\()|(\).*)/g, ""));
+      const [brand] = products[index].find("brand", false).getChildren();
+
+      if (brand instanceof Text) {
+        tag.addProp("brand", brand.getText());
+      }
 
       name.setText(`Name: ${name.getText()}`);
     }
   });
-
-  const products = document.findAll("product");
 
   const [firstProduct] = products;
 

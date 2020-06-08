@@ -1,10 +1,10 @@
-import { XPath, XQuery, XMLDocument } from "utils/XMLUtils";
+import { XPath, XQuery, XMLDocument } from "./utils/XMLUtils";
 
 export const queries = (xml: XMLDocument) => {
   const results = {};
 
   const queryString1 =
-    "products/product[price  > 1000]/name[contains(@description, 'В наличии')]";
+    "products/product[price > 50]/name[contains(@brand, 'YINHE')]";
 
   const query1 = new XPath(queryString1);
   query1.parse();
@@ -12,7 +12,7 @@ export const queries = (xml: XMLDocument) => {
   results[1] = query1.execute(xml);
 
   const queryString2 =
-    "products/product[@index='1']/name[contains(@description, 'В наличии')]";
+    "products/product[@index='1']/name";
 
   const query2 = new XPath(queryString2);
   query2.parse();
@@ -67,7 +67,7 @@ export const queries = (xml: XMLDocument) => {
   results["6_1"] = query6_1.execute(xml);
 
   const queryString7 =
-    "products/product[(price > 10000) and (price < 80000) and contains(name, 'Bitmain')]";
+    "products/product[(price > 50) and (price < 120) and contains(name, 'мячи')]";
 
   const query7 = new XPath(queryString7);
   query7.parse();

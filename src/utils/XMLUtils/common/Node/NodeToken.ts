@@ -1,5 +1,5 @@
 import { Token } from "../Token";
-import { Tag } from "utils/XMLUtils/XMLDocument";
+import { Tag } from "../../XMLDocument";
 
 export class NodeToken extends Token {
   static type = "node";

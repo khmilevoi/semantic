@@ -1,18 +1,15 @@
-import { parseInformation } from "utils/parseHTML";
-import { createXML, wrapXML } from "utils/createXML";
-
-import { readURL } from "utils/readURL";
-import { saveFile } from "utils/saveFile";
-import { readFile } from "utils/readFile";
-
-import { XMLDocument, XSLExecutor } from "utils/XMLUtils";
-
-import { modifyTree } from "modifyTree";
-import { queries } from "queries";
+import { readURL } from "./utils/readURL";
+import { parseInformation } from "./utils/parseHTML";
+import { createXML, wrapXML } from "./utils/createXML";
+import { modifyTree } from "./modifyTree";
+import { saveFile } from "./utils/saveFile";
+import { readFile } from "./utils/readFile";
+import { queries } from "./queries";
+import { XSLExecutor, XMLDocument } from "./utils/XMLUtils";
 
 const main = async () => {
   try {
-    const data = await readURL("https://smt.ua/asic_miner/");
+    const data = await readURL("https://tt-maximum.com/shop/balls");
     const html = data.toString();
 
     const items = parseInformation(html);

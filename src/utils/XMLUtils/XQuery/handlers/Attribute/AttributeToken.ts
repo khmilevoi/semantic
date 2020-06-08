@@ -1,5 +1,5 @@
-import { Token } from "utils/XMLUtils/common/Token";
-import { Tag } from "utils/XMLUtils/XMLDocument";
+import { Token } from "../../../common/Token";
+import { Tag } from "../../../XMLDocument";
 
 export class AttributeToken extends Token {
   static type = "attribute";

@@ -1,7 +1,8 @@
 import { XMLDocument, TNode } from "./XMLDocument";
 import { Tag } from "./Tag";
 import { Text } from "./Text";
-import { createExecutor } from "utils/createExecutor";
+
+import { createExecutor } from "../../createExecutor";
 
 export class XSLExecutor {
   private xml: XMLDocument;

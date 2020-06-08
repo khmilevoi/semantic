@@ -1,7 +1,7 @@
-import { Token } from "utils/XMLUtils/common/Token";
-import { Tag, Text } from "utils/XMLUtils/XMLDocument";
-import { XQuery } from "../../XQuery/XQuery";
-import { XPath } from "utils/XMLUtils/XPath";
+import { Token } from "../Token";
+import { Tag } from "../../XMLDocument";
+import { XPath } from "../../XPath";
+import { XQuery } from "../../XQuery";
 
 export type TParams = {
   tag?: Tag;

@@ -1,5 +1,5 @@
-import { Tag, Text } from "utils/XMLUtils/XMLDocument";
-import { Token } from "utils/XMLUtils/common/Token";
+import { Tag, Text } from "../../../XMLDocument";
+import { Token } from "../../../common/Token";
 
 export class NodeToken extends Token {
   static type = "node";
@@ -10,6 +10,10 @@ export class NodeToken extends Token {
 
   execute(tag: Tag): string {
     const element = tag.find(this.getContent());
+
+    if(!element) {
+      debugger
+    }
 
     return element
       .getChildren()

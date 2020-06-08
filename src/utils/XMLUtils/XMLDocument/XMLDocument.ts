@@ -1,6 +1,7 @@
 import { Tag } from "./Tag";
 import { Text } from "./Text";
-import { createExecutor } from "utils/createExecutor";
+
+import { createExecutor } from "../../createExecutor";
 
 export type TNode = Text | Tag;
 

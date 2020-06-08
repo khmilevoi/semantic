@@ -1,5 +1,5 @@
-import { Handler } from "utils/XMLUtils/common/Handler";
 import { AttributeToken } from "./AttributeToken";
+import { Handler } from "../../../common/Handler";
 
 export class AttributeHandler extends Handler<AttributeToken> {
   regexp = /^@\w+/;

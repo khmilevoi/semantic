@@ -1,4 +1,4 @@
-import { Handler } from "utils/XMLUtils/common/Handler";
+import { Handler } from "../../../common/Handler";
 import { StringToken } from "./StringToken";
 
 export class StringHandler extends Handler<StringToken> {

@@ -1,4 +1,3 @@
-import { createExecutor } from "utils/createExecutor";
 
 import { Expression } from "./Expression";
 
@@ -9,6 +8,7 @@ import { Operator } from "./handlers/Operators/Operator";
 import { Function } from "../common/Functions/Function";
 
 import { types } from "./constants/types";
+import { createExecutor } from "../../createExecutor";
 
 export type THandel = Expression | Operator | Token | Function;
 

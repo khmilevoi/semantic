@@ -1,5 +1,5 @@
 import { NumberToken } from "./NumberToken";
-import { Handler } from "utils/XMLUtils/common/Handler";
+import { Handler } from "../../../common/Handler";
 
 export class NumberHandler extends Handler<NumberToken> {
   regexp = /^\d+\.?\d*$/;

@@ -1,4 +1,4 @@
-import { Token } from "utils/XMLUtils/common/Token";
+import { Token } from "../../../common/Token";
 
 export class StringToken extends Token {
   static type = "string";

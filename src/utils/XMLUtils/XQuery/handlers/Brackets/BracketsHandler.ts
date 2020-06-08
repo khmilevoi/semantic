@@ -1,8 +1,8 @@
-import { createExecutor } from "utils/createExecutor";
 
 import { Handler } from "../../../common/Handler";
 
 import { Expression } from "../../Expression";
+import { createExecutor } from "../../../../createExecutor";
 
 export class BracketsHandler extends Handler<Expression> {
   regexp = /^(\(|\))/;

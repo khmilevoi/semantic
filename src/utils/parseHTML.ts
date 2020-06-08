@@ -25,21 +25,22 @@ export const parseInformation = (html: string) => {
     window: { document },
   } = parsedHTML;
 
-  const items = document.getElementsByClassName("product-thumb");
+  const items = document.getElementsByClassName("obj-box");
 
   return Array.from(Array(items.length), (_, index) => {
     const item = items.item(index);
 
-    const product = {};
+    const [name] = item.getElementsByClassName("product-name");
+    const [brand] = item.getElementsByClassName("brand-caption");
+    const [description] = item.getElementsByClassName("obj-box-desc");
+    const [price] = item.getElementsByClassName("price");
 
-    const metaInfo = item.querySelectorAll("meta");
-
-    for (let meta of metaInfo) {
-      const [name, value] = parseMeta(meta);
-
-      product[name] = value;
-    }
-
-    return product;
+    return {
+      id: index + 5000,
+      name: name.innerHTML,
+      brand: brand.innerHTML,
+      description: description.innerHTML,
+      price: price.innerHTML,
+    };
   });
 };

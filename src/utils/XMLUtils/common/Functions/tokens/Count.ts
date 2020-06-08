@@ -1,5 +1,5 @@
 import { Function, TParams } from "../Function";
-import { XMLDocument } from "utils/XMLUtils/XMLDocument";
+import { XMLDocument } from "../../../XMLDocument";
 
 export class Count extends Function {
   static regexp = /^count/;

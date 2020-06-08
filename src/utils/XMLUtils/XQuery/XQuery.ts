@@ -36,6 +36,8 @@ import { Name } from "../common/Functions/tokens/Name";
 
 const parser = new XQueryParser();
 
+parser.addHandler(new AttributeHandler());
+parser.addHandler(new StringHandler());
 parser.addHandler(
   new FunctionHandler()
     .addToken(Position)
@@ -59,9 +61,7 @@ parser.addHandler(
     .addToken(And)
     .addToken(Mod)
 );
-parser.addHandler(new AttributeHandler());
 parser.addHandler(new NumberHandler());
-parser.addHandler(new StringHandler());
 parser.addHandler(new NodeHandler(NodeToken));
 parser.addHandler(new BracketsHandler());
 

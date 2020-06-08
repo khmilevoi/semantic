@@ -1,5 +1,5 @@
 import { Function, TParams } from "../Function";
-import { Text } from "utils/XMLUtils/XMLDocument";
+import { Text } from "../../../XMLDocument";
 
 export class Concat extends Function {
   static regexp = /^concat/;

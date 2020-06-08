@@ -1,5 +1,5 @@
 import { Axe } from "../Axe";
-import { Tag, TNode } from "utils/XMLUtils/XMLDocument";
+import { Tag } from "../../../../XMLDocument";
 
 export class PrecedingSibling extends Axe {
   static regexp = /^preceding-sibling/;

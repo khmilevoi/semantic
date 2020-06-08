@@ -1,8 +1,8 @@
 import { XQuery } from "../../../XQuery";
 
 import { Token } from "../../../common/Token";
-import { Tag } from "utils/XMLUtils/XMLDocument";
 import { XPath } from "../../XPath";
+import { Tag } from "../../../XMLDocument";
 
 export class PredicateToken extends Token {
   static type = "predicate";

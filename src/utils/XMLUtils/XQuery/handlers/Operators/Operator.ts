@@ -1,5 +1,5 @@
-import { Tag } from "utils/XMLUtils/XMLDocument";
-import { Token } from "utils/XMLUtils/common/Token";
+import { Tag } from "../../../XMLDocument";
+import { Token } from "../../../common/Token";
 import { Expression } from "../../Expression";
 
 export class Operator extends Token {
